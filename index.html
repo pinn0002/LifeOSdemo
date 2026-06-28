@@ -1,381 +1,1070 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<title>LifeOS — Final Demo Pitch</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/black.css" id="theme">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <title>LifeOS — Final Demo Pitch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/black.css" id="theme">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"
+    rel="stylesheet">
 
-<style>
-  :root{
-    --bg:        #060B14;
-    --bg-soft:   #0A1326;
-    --panel:     #0F1B33;
-    --line:      rgba(148,163,184,0.14);
-    --ink:       #ECF1F8;
-    --ink-dim:   #93A2BC;
-    --blue:      #4C8DFF;
-    --blue-dim:  #1E3A66;
-    --green:     #34D7A8;
-    --green-dim: #103D32;
-    --amber:     #FFB454; /* used sparingly, only for "Ask" emphasis */
-    --r: 18px;
-  }
+  <style>
+    :root {
+      --bg: #060B14;
+      --bg-soft: #0A1326;
+      --panel: #0F1B33;
+      --line: rgba(148, 163, 184, 0.14);
+      --ink: #ECF1F8;
+      --ink-dim: #93A2BC;
+      --blue: #4C8DFF;
+      --blue-dim: #1E3A66;
+      --green: #34D7A8;
+      --green-dim: #103D32;
+      --amber: #FFB454;
+      --r: 18px;
+    }
 
-  html, body { background: var(--bg); }
+    html,
+    body {
+      background: var(--bg);
+    }
 
-  .reveal { font-family: 'Inter', sans-serif; color: var(--ink); }
-  .reveal .slides{ text-align:left; }
-  /* ---------- never clip content: every slide scrolls if it overflows ---------- */
-  .reveal .slides section{
-    overflow-y:auto;
-    overflow-x:hidden;
-    max-height:100%;
-    scrollbar-width:thin;
-    scrollbar-color:rgba(148,163,184,0.35) transparent;
-  }
-  .reveal .slides section::-webkit-scrollbar{ width:8px; }
-  .reveal .slides section::-webkit-scrollbar-thumb{ background:rgba(148,163,184,0.35); border-radius:8px; }
-  .reveal .slides section::-webkit-scrollbar-track{ background:transparent; }
+    .reveal {
+      font-family: 'Inter', sans-serif;
+      color: var(--ink);
+    }
 
-  .reveal h1, .reveal h2, .reveal h3 {
-    font-family:'Space Grotesk', sans-serif;
-    text-transform:none;
-    letter-spacing:-0.01em;
-    color:var(--ink);
-  }
-  .reveal h1{ font-size:2.6em; font-weight:700; }
-  .reveal h2{ font-size:1.9em; font-weight:700; }
-  .reveal h3{ font-size:1.2em; font-weight:600; color:var(--ink-dim); }
-  .reveal p, .reveal li{ color:var(--ink-dim); }
-  .reveal section{ padding:40px 64px; }
+    .reveal .slides {
+      text-align: left;
+    }
 
-  .mono{ font-family:'JetBrains Mono', monospace; }
+    .reveal .slides section {
+      overflow-y: auto;
+      overflow-x: hidden;
+      max-height: 100%;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
+    }
 
-  /* ---------- background grid / atmosphere ---------- */
-  .reveal .slide-background.bgrid{
-    background:
-      radial-gradient(circle at 18% 12%, rgba(76,141,255,0.16), transparent 38%),
-      radial-gradient(circle at 82% 86%, rgba(52,215,168,0.13), transparent 42%),
-      var(--bg);
-  }
+    .reveal .slides section::-webkit-scrollbar {
+      width: 8px;
+    }
 
-  /* ---------- eyebrow / kicker ---------- */
-  .kicker{
-    display:inline-flex; align-items:center; gap:10px;
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.5em; letter-spacing:.18em; text-transform:uppercase;
-    color:var(--green); margin-bottom:18px;
-  }
-  .kicker .dot{ width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 10px var(--green); }
+    .reveal .slides section::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.35);
+      border-radius: 8px;
+    }
 
-  /* ---------- generic two-col layout ---------- */
-  .split{ display:flex; gap:48px; align-items:center; height:100%; }
-  .split > div{ flex:1; }
+    .reveal .slides section::-webkit-scrollbar-track {
+      background: transparent;
+    }
 
-  /* ---------- pill / chip ---------- */
-  .pill{
-    display:inline-block; padding:6px 14px; border-radius:999px;
-    border:1px solid var(--line); font-size:.45em; color:var(--ink-dim);
-    font-family:'JetBrains Mono',monospace; letter-spacing:.04em;
-  }
+    .reveal h1,
+    .reveal h2,
+    .reveal h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      text-transform: none;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
 
-  /* ---------- card ---------- */
-  .card{
-    background:var(--panel); border:1px solid var(--line); border-radius:var(--r);
-    padding:24px 28px;
-  }
+    .reveal h1 {
+      font-size: 2.6em;
+      font-weight: 700;
+    }
 
-  /* ---------- big stat ---------- */
-  .stat{ font-family:'Space Grotesk',sans-serif; font-weight:700; line-height:1; }
-  .stat-num{ font-size:3.4em; background:linear-gradient(90deg,var(--blue),var(--green)); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .stat-label{ font-size:.46em; color:var(--ink-dim); font-family:'Inter'; font-weight:500; text-transform:uppercase; letter-spacing:.06em; }
+    .reveal h2 {
+      font-size: 1.9em;
+      font-weight: 700;
+    }
 
-  /* ---------- title slide ---------- */
-  .title-wrap{ height:100%; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; }
-  .logo-row{ display:flex; align-items:center; gap:14px; margin-bottom:28px; }
-  .logo-mark{
-    width:44px; height:44px; border-radius:12px;
-    background:linear-gradient(135deg,var(--blue),var(--green));
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Space Grotesk'; font-weight:700; font-size:20px; color:#06101F;
-  }
-  .logo-word{ font-family:'Space Grotesk'; font-weight:700; font-size:1.3em; }
-  .logo-word b{ color:var(--green); font-weight:700; }
+    .reveal h3 {
+      font-size: 1.2em;
+      font-weight: 600;
+      color: var(--ink-dim);
+    }
 
-  /* ---------- phone mock (status quo) ---------- */
-  .phone{
-    width:230px; margin:0 auto; border-radius:34px; border:1px solid var(--line);
-    background:var(--bg-soft); padding:16px; box-shadow:0 30px 80px -20px rgba(0,0,0,0.6);
-  }
-  .phone .screen{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
-  .app-icon{
-    aspect-ratio:1; border-radius:16px; display:flex; align-items:center; justify-content:center;
-    font-size:1.4em; color:#06101F; font-weight:700; font-family:'Space Grotesk';
-    box-shadow:0 6px 18px -6px rgba(0,0,0,.5);
-  }
-  .app-icon.shake{ animation:wob 2.6s ease-in-out infinite; }
-  @keyframes wob{ 0%,100%{transform:rotate(0)} 50%{transform:rotate(-3deg)} }
+    .reveal p,
+    .reveal li {
+      color: var(--ink-dim);
+    }
 
-  /* ---------- loop diagram (thesis) ---------- */
-  .loop-wrap{ display:flex; justify-content:center; align-items:center; height:100%; }
-  .loop-node{
-    text-align:center; padding:22px 26px; border-radius:16px; border:1px solid var(--line);
-    background:var(--panel); font-family:'Space Grotesk'; font-weight:600;
-  }
-  .loop-node small{ display:block; font-family:'Inter'; font-weight:400; color:var(--ink-dim); font-size:.6em; margin-top:6px; }
+    .reveal section {
+      padding: 40px 64px;
+    }
 
-  /* ---------- demo slide ---------- */
-  .demo-frame{
-    border:1px solid var(--line); border-radius:var(--r); background:var(--bg-soft);
-    padding:10px; box-shadow:0 30px 70px -25px rgba(0,0,0,.7);
-  }
-  .demo-bar{ display:flex; gap:6px; padding:4px 8px 12px; }
-  .demo-bar span{ width:10px; height:10px; border-radius:50%; background:var(--line); }
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
 
-  /* ---------- progress flow ---------- */
-  .flow{ display:flex; align-items:center; justify-content:center; gap:14px; }
-  .flow .arrow{ color:var(--ink-dim); font-size:1.4em; }
+    /* background */
+    .reveal .slide-background.bgrid {
+      background:
+        radial-gradient(circle at 18% 12%, rgba(76, 141, 255, 0.16), transparent 38%),
+        radial-gradient(circle at 82% 86%, rgba(52, 215, 168, 0.13), transparent 42%),
+        var(--bg);
+    }
 
-  /* ---------- footer tag on every content slide ---------- */
-  .tag{
-    position:absolute; bottom:26px; right:64px; font-family:'JetBrains Mono';
-    font-size:.4em; color:var(--ink-dim); letter-spacing:.08em;
-  }
+    /* kicker */
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.5em;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 18px;
+    }
 
-  /* ---------- table-ish appendix ---------- */
-  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .kicker .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 10px var(--green);
+    }
 
-  .reveal .progress{ color:var(--green); height:3px; }
-  .reveal .controls{ color:var(--ink-dim); }
-</style>
+    /* layouts */
+    .split {
+      display: flex;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .split>div {
+      flex: 1;
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .grid3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+    }
+
+    /* pill */
+    .pill {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-size: .45em;
+      color: var(--ink-dim);
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: .04em;
+    }
+
+    /* card */
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      padding: 24px 28px;
+    }
+
+    /* stat */
+    .stat {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .stat-num {
+      font-size: 3.4em;
+      background: linear-gradient(90deg, var(--blue), var(--green));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .stat-label {
+      font-size: .46em;
+      color: var(--ink-dim);
+      font-family: 'Inter';
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    /* title */
+    .title-wrap {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .logo-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk';
+      font-weight: 700;
+      font-size: 20px;
+      color: #06101F;
+    }
+
+    .logo-word {
+      font-family: 'Space Grotesk';
+      font-weight: 700;
+      font-size: 1.3em;
+    }
+
+    .logo-word b {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    /* app icons */
+    .app-icon {
+      aspect-ratio: 1;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4em;
+      color: #06101F;
+      font-weight: 700;
+      font-family: 'Space Grotesk';
+      box-shadow: 0 6px 18px -6px rgba(0, 0, 0, .5);
+    }
+
+    .app-icon.shake {
+      animation: wob 2.6s ease-in-out infinite;
+    }
+
+    @keyframes wob {
+
+      0%,
+      100% {
+        transform: rotate(0)
+      }
+
+      50% {
+        transform: rotate(-3deg)
+      }
+    }
+
+    /* flow */
+    .flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .flow .arrow {
+      color: var(--ink-dim);
+      font-size: 1.4em;
+    }
+
+    /* footer tag */
+    .tag {
+      position: absolute;
+      bottom: 26px;
+      right: 64px;
+      font-family: 'JetBrains Mono';
+      font-size: .4em;
+      color: var(--ink-dim);
+      letter-spacing: .08em;
+    }
+
+    /* progress bar */
+    .prog-bar {
+      height: 6px;
+      border-radius: 6px;
+      background: var(--line);
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .prog-bar-fill {
+      height: 100%;
+      border-radius: 6px;
+    }
+
+    /* survey bars */
+    .survey-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .survey-bar-track {
+      flex: 1;
+      height: 8px;
+      border-radius: 8px;
+      background: var(--line);
+      overflow: hidden;
+    }
+
+    .survey-bar-fill {
+      height: 100%;
+      border-radius: 8px;
+      background: linear-gradient(90deg, var(--blue), var(--green));
+    }
+
+    .survey-pct {
+      font-family: 'Space Grotesk';
+      font-weight: 700;
+      font-size: .78em;
+      color: var(--ink);
+      width: 3em;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* rings */
+    .rings {
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      align-items: center;
+    }
+
+    /* insight chip */
+    .insight-chip {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-bottom: 10px;
+    }
+
+    .insight-icon {
+      font-size: 1.3em;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* feature dot list */
+    .feat {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 9px;
+    }
+
+    .feat-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* todo tag */
+    .todo-tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-family: 'JetBrains Mono';
+      font-size: .55em;
+      letter-spacing: .04em;
+    }
+
+    /* screenshot placeholder */
+    .ss-placeholder {
+      border: 1px dashed rgba(148, 163, 184, 0.28);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(15, 27, 51, 0.5);
+      font-family: 'JetBrains Mono';
+      font-size: .62em;
+      color: rgba(147, 162, 188, 0.55);
+      text-align: center;
+      padding: 18px;
+      min-height: 100px;
+    }
+
+    .reveal .progress {
+      color: var(--green);
+      height: 3px;
+    }
+
+    .reveal .controls {
+      color: var(--ink-dim);
+    }
+  </style>
 </head>
+
 <body>
-<div class="reveal">
-  <div class="slides">
+  <div class="reveal">
+    <div class="slides">
 
-    <!-- ============ 1. TITLE ============ -->
-    <section data-background-class="bgrid">
-      <div class="title-wrap">
-        <div class="logo-row">
-          <div class="logo-mark">L</div>
-          <div class="logo-word">Life<b>OS</b></div>
-        </div>
-        <span class="kicker"><span class="dot"></span>Final Demo · Hackathon Pitch</span>
-        <h1 style="max-width:9.5em; font-size:3em;">One operating system for your money, body, and time.</h1>
-        <p style="max-width:30em; font-size:1.05em; margin-top:10px;">
-          LifeOS unifies finance, nutrition, and fitness data into a single live model —
-          so one action automatically updates everything else.
-        </p>
-        <p class="pill" style="margin-top:30px;">Team LifeOS · [presenter names] · [email]</p>
-      </div>
-    </section>
-
-    <!-- ============ 2. STATUS QUO / PROBLEM ============ -->
-    <section data-background-class="bgrid">
-      <span class="kicker"><span class="dot"></span>01 · The Problem</span>
-      <h2 style="max-width:11em;">The fragmented self</h2>
-      <div class="split" style="margin-top:10px;">
-        <div>
-          <p style="font-size:1.1em; max-width:24em;">
-            People run their life through four or five apps that never talk to each other.
-            Every one of them wants a subscription. None of them know the others exist.
+      <!-- ============ 1. TITLE / ABOUT ============ -->
+      <section data-background-class="bgrid">
+        <div class="title-wrap">
+          <div class="logo-row">
+            <div class="logo-mark">L</div>
+            <div class="logo-word">Life<b>OS</b></div>
+          </div>
+          <span class="kicker"><span class="dot"></span>Final Demo · Hackathon Pitch</span>
+          <h1 style="max-width:10em; font-size:2.8em; line-height:1.15;">
+            One operating system for your money, body, and time.
+          </h1>
+          <p style="max-width:32em; font-size:1.05em; margin-top:14px;">
+            LifeOS connects your finances, nutrition, and fitness into a single live model.
+            One action updates everything — no app-switching, no manual logging.
           </p>
-          <div style="margin-top:34px;" class="stat">
-            <div class="stat-num">4–5</div>
-            <div class="stat-label">disconnected apps per person, per category</div>
+          <div style="display:flex; gap:12px; margin-top:30px; flex-wrap:wrap; align-items:center;">
+            <span class="pill">Finance · Fitness · Diet · Groceries</span>
+          </div>
+          <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap;">
+            <span class="pill">Chandra Likhitha Chopparapu</span>
+            <span class="pill">Sai Chaitanya Ampabathina</span>
+            <span class="pill">Divya Sai Pinnamaneni</span>
           </div>
         </div>
-        <div>
-          <div class="phone">
-            <div class="screen">
-              <div class="app-icon shake" style="background:#2A6BFF;">M</div>
-              <div class="app-icon shake" style="background:#34D7A8; animation-delay:.3s;">F</div>
-              <div class="app-icon shake" style="background:#FF6B6B; animation-delay:.6s;">S</div>
-              <div class="app-icon shake" style="background:#FFB454; animation-delay:.9s;">H</div>
-              <div class="app-icon shake" style="background:#8B6BFF; animation-delay:1.2s;">B</div>
-              <div class="app-icon" style="background:var(--line); color:var(--ink-dim);">+12</div>
+      </section>
+
+      <!-- ============ 2. PROBLEM ============ -->
+      <section data-background-class="bgrid">
+        <span class="kicker"><span class="dot"></span>01 · The Problem</span>
+        <h2 style="max-width:13em;">Your life runs on apps that don't talk to each other.</h2>
+        <div class="split" style="margin-top:14px; gap:40px; align-items:flex-start;">
+          <div>
+            <p style="font-size:1em; max-width:24em; margin-bottom:24px;">
+              People juggle four to five separate apps to track money, meals, and movement —
+              each one siloed, none of them aware the others exist.
+            </p>
+            <div class="grid2" style="gap:12px;">
+              <div class="card" style="padding:18px 20px;">
+                <div style="font-size:1.5em; margin-bottom:6px;">💸</div>
+                <div style="font-family:'Space Grotesk'; font-weight:700; color:var(--ink); font-size:.95em;">Finance
+                </div>
+                <div style="font-size:.75em; color:var(--ink-dim); margin-top:4px;">Robinhood, Mint, bank apps</div>
+              </div>
+              <div class="card" style="padding:18px 20px;">
+                <div style="font-size:1.5em; margin-bottom:6px;">🥗</div>
+                <div style="font-family:'Space Grotesk'; font-weight:700; color:var(--ink); font-size:.95em;">Diet</div>
+                <div style="font-size:.75em; color:var(--ink-dim); margin-top:4px;">MyFitnessPal, Cronometer</div>
+              </div>
+              <div class="card" style="padding:18px 20px;">
+                <div style="font-size:1.5em; margin-bottom:6px;">🏃</div>
+                <div style="font-family:'Space Grotesk'; font-weight:700; color:var(--ink); font-size:.95em;">Fitness
+                </div>
+                <div style="font-size:.75em; color:var(--ink-dim); margin-top:4px;">Apple Health, Strava</div>
+              </div>
+              <div class="card" style="padding:18px 20px;">
+                <div style="font-size:1.5em; margin-bottom:6px;">🛒</div>
+                <div style="font-family:'Space Grotesk'; font-weight:700; color:var(--ink); font-size:.95em;">Groceries
+                </div>
+                <div style="font-size:.75em; color:var(--ink-dim); margin-top:4px;">Separate lists, no sync</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:24px;">
+            <div class="stat" style="text-align:center;">
+              <div class="stat-num">4–5</div>
+              <div class="stat-label">disconnected apps per person</div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:8px; width:220px;">
+              <div
+                style="background:rgba(255,100,100,0.1); border:1px solid rgba(255,100,100,0.22); border-radius:10px; padding:10px 16px; font-size:.78em; color:#FF8585; font-family:'Inter';">
+                App fatigue</div>
+              <div
+                style="background:rgba(255,100,100,0.1); border:1px solid rgba(255,100,100,0.22); border-radius:10px; padding:10px 16px; font-size:.78em; color:#FF8585; font-family:'Inter';">
+                Data silos</div>
+              <div
+                style="background:rgba(255,100,100,0.1); border:1px solid rgba(255,100,100,0.22); border-radius:10px; padding:10px 16px; font-size:.78em; color:#FF8585; font-family:'Inter';">
+                No cross-domain insights</div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="tag">app fatigue · data silos</div>
-    </section>
+        <div class="tag">the fragmented self</div>
+      </section>
 
-    <!-- ============ 3. CORE THESIS ============ -->
-    <section data-background-class="bgrid">
-      <span class="kicker"><span class="dot"></span>02 · The Thesis</span>
-      <h2>One model. Three signals.</h2>
-      <div class="loop-wrap">
-        <svg viewBox="0 0 760 360" width="100%" style="max-width:760px;">
-          <defs>
-            <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
-              <path d="M0,0 L6,3 L0,6" fill="none" stroke="#5C6B85" stroke-width="1.4"/>
-            </marker>
-          </defs>
-          <path d="M 260 90 A 220 220 0 0 1 500 90" fill="none" stroke="#5C6B85" stroke-width="1.6" marker-end="url(#arrow)"/>
-          <path d="M 600 220 A 220 220 0 0 1 480 320" fill="none" stroke="#5C6B85" stroke-width="1.6" marker-end="url(#arrow)"/>
-          <path d="M 280 320 A 220 220 0 0 1 160 220" fill="none" stroke="#5C6B85" stroke-width="1.6" marker-end="url(#arrow)"/>
-
-          <g transform="translate(380,70)">
-            <rect x="-110" y="-32" width="220" height="64" rx="16" fill="#0F1B33" stroke="rgba(148,163,184,0.18)"/>
-            <text x="0" y="2" text-anchor="middle" fill="#ECF1F8" font-family="Space Grotesk" font-weight="700" font-size="22">Finance</text>
-            <text x="0" y="22" text-anchor="middle" fill="#93A2BC" font-family="Inter" font-size="11">spend · cash flow</text>
-          </g>
-          <g transform="translate(610,250)">
-            <rect x="-110" y="-32" width="220" height="64" rx="16" fill="#0F1B33" stroke="rgba(148,163,184,0.18)"/>
-            <text x="0" y="2" text-anchor="middle" fill="#ECF1F8" font-family="Space Grotesk" font-weight="700" font-size="22">Nutrition</text>
-            <text x="0" y="22" text-anchor="middle" fill="#93A2BC" font-family="Inter" font-size="11">meals · groceries</text>
-          </g>
-          <g transform="translate(150,250)">
-            <rect x="-110" y="-32" width="220" height="64" rx="16" fill="#0F1B33" stroke="rgba(148,163,184,0.18)"/>
-            <text x="0" y="2" text-anchor="middle" fill="#ECF1F8" font-family="Space Grotesk" font-weight="700" font-size="22">Fitness</text>
-            <text x="0" y="22" text-anchor="middle" fill="#93A2BC" font-family="Inter" font-size="11">training · recovery</text>
-          </g>
-
-          <circle cx="380" cy="190" r="46" fill="none" stroke="#34D7A8" stroke-width="1.4" stroke-dasharray="3 5"/>
-          <text x="380" y="186" text-anchor="middle" fill="#34D7A8" font-family="JetBrains Mono" font-size="11">LIFEOS</text>
-          <text x="380" y="202" text-anchor="middle" fill="#34D7A8" font-family="JetBrains Mono" font-size="11">MODEL</text>
-        </svg>
-      </div>
-      <p style="text-align:center; max-width:34em; margin:18px auto 0; font-size:1.05em;">
-        Money decisions shape health outcomes. Health shapes energy, focus, and earning capacity.
-        LifeOS is the first platform built directly on that loop — not three dashboards bolted together.
-      </p>
-      <div class="tag">the unfair advantage</div>
-    </section>
-
-    <!-- ============ 4. LIVE DEMO ============ -->
-    <section data-background-class="bgrid">
-      <span class="kicker"><span class="dot"></span>03 · Live Demo</span>
-      <h2>Watch one action move the whole model</h2>
-      <div class="split" style="margin-top:8px;">
-        <div style="flex:1.3;">
-          <div class="demo-frame">
-            <div class="demo-bar"><span></span><span></span><span></span></div>
-            <div style="aspect-ratio:16/9; border-radius:10px; background:linear-gradient(135deg,#0A1326,#0F1B33); display:flex; align-items:center; justify-content:center; color:var(--ink-dim); font-family:'JetBrains Mono'; font-size:.85em;">
-              [ switch to live LifeOS app here ]
-            </div>
-          </div>
-        </div>
-        <div style="flex:1;">
-          <div class="flow" style="flex-direction:column; align-items:flex-start; gap:18px;">
-            <div class="card" style="width:100%;"><b style="font-family:'Space Grotesk';">1.</b> Log one grocery transaction</div>
-            <div class="card" style="width:100%; border-color:rgba(76,141,255,0.4);"><b style="font-family:'Space Grotesk'; color:var(--blue);">2.</b> Nutrition log updates automatically</div>
-            <div class="card" style="width:100%; border-color:rgba(52,215,168,0.4);"><b style="font-family:'Space Grotesk'; color:var(--green);">3.</b> Training plan rebalances itself</div>
-          </div>
-        </div>
-      </div>
-      <p style="margin-top:24px; max-width:34em;">No manual syncing, no separate logging. One input, three systems update in real time.</p>
-      <div class="tag">the "wow" moment</div>
-    </section>
-
-    <!-- ============ 5. MARKET & MONETIZATION ============ -->
-    <section data-background-class="bgrid">
-      <span class="kicker"><span class="dot"></span>04 · Market &amp; Business Model</span>
-      <h2>Two huge markets, one subscription</h2>
-      <div class="split">
-        <div>
-          <div class="grid2">
+      <!-- ============ 3. SURVEY ============ -->
+      <section data-background-class="bgrid">
+        <span class="kicker"><span class="dot"></span>02 · User Validation</span>
+        <h2>What real users told us</h2>
+        <p style="margin-bottom:20px; font-size:.9em;">Survey of 10 users · collected before this demo</p>
+        <div class="grid2" style="gap:16px; align-items:start;">
+          <!-- Left -->
+          <div style="display:flex; flex-direction:column; gap:14px;">
             <div class="card">
-              <div class="stat"><div class="stat-num" style="font-size:2.2em;">$XXB</div><div class="stat-label">Health &amp; fitness app market</div></div>
+              <div
+                style="font-family:'JetBrains Mono'; font-size:.48em; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-dim); margin-bottom:14px;">
+                Biggest frustration</div>
+              <div class="survey-bar">
+                <div style="flex:1;">
+                  <div style="font-size:.8em; color:var(--ink); margin-bottom:5px;">Too many apps to track</div>
+                  <div class="survey-bar-track">
+                    <div class="survey-bar-fill" style="width:80%"></div>
+                  </div>
+                </div>
+                <span class="survey-pct">80%</span>
+              </div>
+              <div class="survey-bar" style="margin-bottom:0;">
+                <div style="flex:1;">
+                  <div style="font-size:.8em; color:var(--ink); margin-bottom:5px;">Apps don't talk to each other</div>
+                  <div class="survey-bar-track">
+                    <div class="survey-bar-fill" style="width:40%"></div>
+                  </div>
+                </div>
+                <span class="survey-pct">40%</span>
+              </div>
             </div>
             <div class="card">
-              <div class="stat"><div class="stat-num" style="font-size:2.2em;">$XXB</div><div class="stat-label">Personal finance / budgeting market</div></div>
+              <div
+                style="font-family:'JetBrains Mono'; font-size:.48em; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-dim); margin-bottom:14px;">
+                Money ↔ Health collision in the last month?</div>
+              <div class="survey-bar">
+                <div style="flex:1;">
+                  <div style="font-size:.8em; color:var(--ink); margin-bottom:5px;">Yes</div>
+                  <div class="survey-bar-track">
+                    <div class="survey-bar-fill" style="width:60%"></div>
+                  </div>
+                </div>
+                <span class="survey-pct">60%</span>
+              </div>
+              <div class="survey-bar" style="margin-bottom:0;">
+                <div style="flex:1;">
+                  <div style="font-size:.8em; color:var(--ink); margin-bottom:5px;">Maybe</div>
+                  <div class="survey-bar-track">
+                    <div class="survey-bar-fill"
+                      style="width:20%; background:linear-gradient(90deg, var(--amber), #FFD180);"></div>
+                  </div>
+                </div>
+                <span class="survey-pct" style="color:var(--amber);">20%</span>
+              </div>
             </div>
           </div>
-          <p style="margin-top:18px; font-size:.95em;">[Replace $XXB with sourced TAM figures for each market.]</p>
-        </div>
-        <div>
-          <div class="card" style="background:var(--bg-soft);">
-            <p style="color:var(--ink-dim); font-size:.85em; margin-bottom:14px;">Today, people pay for three apps separately</p>
-            <div class="flow">
-              <div class="stat"><div class="stat-num" style="font-size:1.6em;">$10</div><div class="stat-label">finance</div></div>
-              <div class="arrow">+</div>
-              <div class="stat"><div class="stat-num" style="font-size:1.6em;">$10</div><div class="stat-label">diet</div></div>
-              <div class="arrow">+</div>
-              <div class="stat"><div class="stat-num" style="font-size:1.6em;">$10</div><div class="stat-label">fitness</div></div>
+          <!-- Right -->
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <div class="card">
+              <div
+                style="font-family:'JetBrains Mono'; font-size:.48em; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-dim); margin-bottom:14px;">
+                Would pay for LifeOS?</div>
+              <div style="display:flex; gap:10px;">
+                <div
+                  style="flex:1; background:var(--green-dim); border:1px solid rgba(52,215,168,0.3); border-radius:12px; padding:14px; text-align:center;">
+                  <div style="font-family:'Space Grotesk'; font-weight:700; font-size:1.8em; color:var(--green);">50%
+                  </div>
+                  <div style="font-size:.68em; color:var(--ink-dim); margin-top:4px;">Yes</div>
+                </div>
+                <div
+                  style="flex:1; background:rgba(255,180,84,0.1); border:1px solid rgba(255,180,84,0.25); border-radius:12px; padding:14px; text-align:center;">
+                  <div style="font-family:'Space Grotesk'; font-weight:700; font-size:1.8em; color:var(--amber);">30%
+                  </div>
+                  <div style="font-size:.68em; color:var(--ink-dim); margin-top:4px;">Maybe</div>
+                </div>
+              </div>
+              <p style="font-size:.72em; margin-top:10px; text-align:center;">→ <b style="color:var(--green);">80% open
+                  to paying</b> for a unified solution</p>
             </div>
-            <div style="text-align:center; margin:14px 0; color:var(--ink-dim); font-family:'JetBrains Mono'; font-size:.75em;">becomes</div>
-            <div style="text-align:center;">
-              <div class="stat"><div class="stat-num" style="font-size:2.6em;">$15/mo</div><div class="stat-label">one unified LifeOS dashboard</div></div>
+            <div class="card">
+              <div
+                style="font-family:'JetBrains Mono'; font-size:.48em; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-dim); margin-bottom:12px;">
+                Most wanted features</div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--green);"></div><span
+                  style="font-size:.82em; color:var(--ink);">Cross-module insights</span>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--blue);"></div><span
+                  style="font-size:.82em; color:var(--ink);">Finance tracking</span>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--blue);"></div><span
+                  style="font-size:.82em; color:var(--ink);">Fitness &amp; Diet</span>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--blue);"></div><span
+                  style="font-size:.82em; color:var(--ink);">Groceries &amp; To-dos</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="tag">replacing $30/mo with $15/mo</div>
-    </section>
+        <div class="tag">user-validated · n=10</div>
+      </section>
 
-    <!-- ============ 6. SECURITY & ROADMAP ============ -->
-    <section data-background-class="bgrid">
-      <span class="kicker"><span class="dot"></span>05 · Trust &amp; What's Next</span>
-      <h2>Secure today. Smarter tomorrow.</h2>
-      <div class="split">
-        <div>
-          <h3 style="margin-bottom:12px;">Locked down from day one</h3>
-          <div class="card" style="margin-bottom:12px;">Plaid integration · SOC2-compliant tokens</div>
-          <div class="card">Apple HealthKit · on-device encryption</div>
+      <!-- ============ 4. SOLUTION ============ -->
+      <section data-background-class="bgrid">
+        <span class="kicker"><span class="dot"></span>03 · The Solution</span>
+        <h2>One app. Every signal. Zero switching.</h2>
+        <p style="max-width:36em; font-size:1em; margin-bottom:22px;">
+          LifeOS connects your financial transactions, nutritional intake, and physical activity
+          into a single live model — and shows you how they influence each other.
+        </p>
+        <div class="grid3" style="gap:14px;">
+          <div class="card" style="border-color:rgba(76,141,255,0.4); padding:20px 22px;">
+            <div style="font-size:1.8em; margin-bottom:10px;">💰</div>
+            <div
+              style="font-family:'Space Grotesk'; font-weight:700; font-size:1.05em; color:var(--blue); margin-bottom:8px;">
+              Finance</div>
+            <div style="font-size:.8em; color:var(--ink-dim); line-height:1.6;">Track spending, savings, and budget vs.
+              actuals. Plaid-connected, always live.</div>
+          </div>
+          <div class="card" style="border-color:rgba(52,215,168,0.4); padding:20px 22px;">
+            <div style="font-size:1.8em; margin-bottom:10px;">🏃</div>
+            <div
+              style="font-family:'Space Grotesk'; font-weight:700; font-size:1.05em; color:var(--green); margin-bottom:8px;">
+              Fitness</div>
+            <div style="font-size:.8em; color:var(--ink-dim); line-height:1.6;">Activity rings, step counts, and move
+              points synced from Apple HealthKit.</div>
+          </div>
+          <div class="card" style="border-color:rgba(255,180,84,0.4); padding:20px 22px;">
+            <div style="font-size:1.8em; margin-bottom:10px;">🥗</div>
+            <div
+              style="font-family:'Space Grotesk'; font-weight:700; font-size:1.05em; color:var(--amber); margin-bottom:8px;">
+              Diet</div>
+            <div style="font-size:.8em; color:var(--ink-dim); line-height:1.6;">Log meals, track calories and macros,
+              auto-build grocery lists from your diet plan.</div>
+          </div>
         </div>
-        <div>
-          <h3 style="margin-bottom:12px;">Next milestones</h3>
-          <div class="card" style="margin-bottom:12px; border-color:rgba(52,215,168,0.4);">Proprietary local LLM for deeper pattern detection</div>
-          <div class="card" style="border-color:rgba(76,141,255,0.4);">Example: sleep deprivation → impulse grocery spend</div>
+        <div class="card"
+          style="margin-top:14px; background:linear-gradient(90deg, rgba(76,141,255,0.07), rgba(52,215,168,0.07)); border-color:rgba(52,215,168,0.25); padding:18px 26px;">
+          <div style="display:flex; align-items:center; gap:16px;">
+            <div style="font-size:1.6em;">✨</div>
+            <div>
+              <div style="font-family:'Space Grotesk'; font-weight:700; color:var(--ink); font-size:.95em;">The LifeOS
+                difference</div>
+              <div style="font-size:.82em; color:var(--ink-dim); margin-top:4px;">
+                All three modules share one live model. A grocery purchase updates your nutrition log <em>and</em> your
+                budget simultaneously.
+                One input — three systems updated in real time.
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="tag">security · roadmap</div>
-    </section>
+        <div class="tag">finance · fitness · diet</div>
+      </section>
 
-    <!-- ============ 7. THE ASK / CLOSING ============ -->
-    <section data-background-class="bgrid">
-      <span class="kicker"><span class="dot"></span>The Ask</span>
-      <h2>Why LifeOS wins</h2>
-      <ul style="font-size:1.1em; max-width:30em; line-height:1.7;">
-        <li>One model across finance, nutrition, and fitness — not three dashboards</li>
-        <li>A single $15/mo subscription replacing $30+/mo across separate apps</li>
-        <li>Security and data partnerships already in place: Plaid, HealthKit</li>
-        <li>[State your specific ask: investment / next-round support / partnership]</li>
-      </ul>
-      <div class="logo-row" style="margin-top:40px;">
-        <div class="logo-mark">L</div>
-        <div class="logo-word">Life<b>OS</b></div>
-        <span class="pill">[email] · [website]</span>
-      </div>
-      <div class="tag">connect with LifeOS</div>
-    </section>
+      <!-- ============ 5. DASHBOARD ============ -->
+      <section data-background-class="bgrid">
+        <span class="kicker"><span class="dot"></span>04 · Dashboard</span>
+        <h2>Everything at a glance</h2>
+        <div class="split" style="margin-top:10px; gap:36px; align-items:flex-start;">
+          <div style="flex:1.15;">
+            <!-- Rings -->
+            <div class="card" style="padding:22px 24px; margin-bottom:12px;">
+              <div
+                style="font-family:'JetBrains Mono'; font-size:.48em; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-dim); margin-bottom:16px;">
+                Today's progress rings</div>
+              <div class="rings">
+                <div style="text-align:center;">
+                  <svg width="88" height="88" viewBox="0 0 88 88">
+                    <circle cx="44" cy="44" r="36" fill="none" stroke="rgba(76,141,255,0.15)" stroke-width="8" />
+                    <circle cx="44" cy="44" r="36" fill="none" stroke="#4C8DFF" stroke-width="8" stroke-dasharray="226"
+                      stroke-dashoffset="53" stroke-linecap="round" transform="rotate(-90 44 44)" />
+                    <text x="44" y="41" text-anchor="middle" fill="#ECF1F8" font-family="Space Grotesk"
+                      font-weight="700" font-size="13">22</text>
+                    <text x="44" y="54" text-anchor="middle" fill="#93A2BC" font-family="Inter" font-size="8">/ 30
+                      min</text>
+                  </svg>
+                  <div style="font-size:.62em; color:var(--blue); margin-top:5px; font-family:'JetBrains Mono';">
+                    Activity</div>
+                </div>
+                <div style="text-align:center;">
+                  <svg width="88" height="88" viewBox="0 0 88 88">
+                    <circle cx="44" cy="44" r="36" fill="none" stroke="rgba(52,215,168,0.15)" stroke-width="8" />
+                    <circle cx="44" cy="44" r="36" fill="none" stroke="#34D7A8" stroke-width="8" stroke-dasharray="226"
+                      stroke-dashoffset="56" stroke-linecap="round" transform="rotate(-90 44 44)" />
+                    <text x="44" y="41" text-anchor="middle" fill="#ECF1F8" font-family="Space Grotesk"
+                      font-weight="700" font-size="13">9</text>
+                    <text x="44" y="54" text-anchor="middle" fill="#93A2BC" font-family="Inter" font-size="8">/ 12
+                      hrs</text>
+                  </svg>
+                  <div style="font-size:.62em; color:var(--green); margin-top:5px; font-family:'JetBrains Mono';">Stand
+                  </div>
+                </div>
+                <div style="text-align:center;">
+                  <svg width="88" height="88" viewBox="0 0 88 88">
+                    <circle cx="44" cy="44" r="36" fill="none" stroke="rgba(255,180,84,0.15)" stroke-width="8" />
+                    <circle cx="44" cy="44" r="36" fill="none" stroke="#FFB454" stroke-width="8" stroke-dasharray="226"
+                      stroke-dashoffset="79" stroke-linecap="round" transform="rotate(-90 44 44)" />
+                    <text x="44" y="38" text-anchor="middle" fill="#ECF1F8" font-family="Space Grotesk"
+                      font-weight="700" font-size="11">1,400</text>
+                    <text x="44" y="50" text-anchor="middle" fill="#93A2BC" font-family="Inter" font-size="8">/
+                      2,060</text>
+                    <text x="44" y="61" text-anchor="middle" fill="#93A2BC" font-family="Inter"
+                      font-size="7">kcal</text>
+                  </svg>
+                  <div style="font-size:.62em; color:var(--amber); margin-top:5px; font-family:'JetBrains Mono';">
+                    Calories</div>
+                </div>
+              </div>
+            </div>
+            <!-- Stats row -->
+            <div class="grid2" style="gap:10px;">
+              <div class="card" style="padding:14px 18px; border-color:rgba(76,141,255,0.3);">
+                <div style="font-size:.7em; color:var(--ink-dim); margin-bottom:4px;">Saved this month</div>
+                <div style="font-family:'Space Grotesk'; font-weight:700; font-size:1.45em; color:var(--blue);">$2,233
+                </div>
+                <div class="prog-bar" style="margin-top:8px;">
+                  <div class="prog-bar-fill" style="width:75%; background:var(--blue);"></div>
+                </div>
+              </div>
+              <div class="card" style="padding:14px 18px; border-color:rgba(52,215,168,0.3);">
+                <div style="font-size:.7em; color:var(--ink-dim); margin-bottom:4px;">Daily steps</div>
+                <div style="font-family:'Space Grotesk'; font-weight:700; font-size:1.45em; color:var(--green);">7,842
+                </div>
+                <div class="prog-bar" style="margin-top:8px;">
+                  <div class="prog-bar-fill" style="width:78%; background:var(--green);"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="flex:1;">
+            <div class="ss-placeholder" style="min-height:320px;">
+              [ Add dashboard screenshot here ]
+            </div>
+          </div>
+        </div>
+        <div class="tag">live dashboard</div>
+      </section>
 
-    <!-- ============ 8. APPENDIX (backup, not presented live) ============ -->
-    <section data-background-class="bgrid">
-      <span class="kicker"><span class="dot"></span>Appendix · Q&amp;A backup</span>
-      <h2>Backup detail</h2>
-      <div class="grid2">
-        <div class="card">Competition &amp; comparables</div>
-        <div class="card">Financial projections</div>
-        <div class="card">Architecture / tech stack</div>
-        <div class="card">Roadmap timeline</div>
-        <div class="card">Team backgrounds</div>
-        <div class="card">Use of funds / next steps</div>
-      </div>
-      <p style="margin-top:18px; font-size:.85em;">Keep this slide for Q&amp;A only — don't present it live. Answer on the closing slide, dive in here if asked.</p>
-    </section>
+      <!-- ============ 6. INSIGHTS ============ -->
+      <section data-background-class="bgrid">
+        <span class="kicker"><span class="dot"></span>05 · Insights</span>
+        <h2>Where the magic happens</h2>
+        <div class="split" style="margin-top:10px; gap:36px; align-items:flex-start;">
+          <div style="flex:1.1;">
+            <div
+              style="font-family:'JetBrains Mono'; font-size:.48em; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-dim); margin-bottom:10px;">
+              Cross-module insights</div>
+            <div class="insight-chip">
+              <span class="insight-icon">💪💰</span>
+              <div>
+                <div style="font-family:'Space Grotesk'; font-weight:600; color:var(--ink); font-size:.86em;">Gym
+                  membership paying off</div>
+                <div style="font-size:.76em; color:var(--green); margin-top:3px;">$2.29 / session — best value spend
+                  this month</div>
+              </div>
+            </div>
+            <div class="insight-chip">
+              <span class="insight-icon">😴💸</span>
+              <div>
+                <div style="font-family:'Space Grotesk'; font-weight:600; color:var(--ink); font-size:.86em;">Low energy
+                  → impulse spending</div>
+                <div style="font-size:.76em; color:var(--amber); margin-top:3px;">40% more on takeout on days with &lt;6
+                  hrs sleep</div>
+              </div>
+            </div>
+            <div class="insight-chip" style="margin-bottom:0;">
+              <span class="insight-icon">🥗🏃</span>
+              <div>
+                <div style="font-family:'Space Grotesk'; font-weight:600; color:var(--ink); font-size:.86em;">Nutrition
+                  fuels performance</div>
+                <div style="font-size:.76em; color:var(--blue); margin-top:3px;">High-protein days align with your best
+                  workouts</div>
+              </div>
+            </div>
+            <div style="margin-top:12px;">
+              <div class="ss-placeholder">[ Add insights screenshot here ]</div>
+            </div>
+          </div>
+          <div style="flex:1;">
+            <div
+              style="font-family:'JetBrains Mono'; font-size:.48em; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-dim); margin-bottom:10px;">
+              Yesterday's summary</div>
+            <div class="card" style="padding:16px 20px; margin-bottom:12px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                <span style="font-size:.82em; color:var(--ink);">💸 Money</span>
+                <span style="font-size:.75em; color:var(--green); font-family:'JetBrains Mono';">On track</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                <span style="font-size:.82em; color:var(--ink);">🏃 Body</span>
+                <span style="font-size:.75em; color:var(--green); font-family:'JetBrains Mono';">Goal met</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.82em; color:var(--ink);">⚡ Energy</span>
+                <span style="font-size:.75em; color:var(--amber); font-family:'JetBrains Mono';">Below target</span>
+              </div>
+            </div>
+            <div
+              style="font-family:'JetBrains Mono'; font-size:.48em; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-dim); margin-bottom:8px;">
+              Open to-dos</div>
+            <div style="display:flex; flex-direction:column; gap:6px;">
+              <div class="card"
+                style="padding:10px 16px; display:flex; align-items:center; justify-content:space-between;">
+                <span style="font-size:.78em; color:var(--ink);">Review grocery budget</span>
+                <span class="todo-tag" style="background:rgba(76,141,255,0.15); color:var(--blue);">Finance</span>
+              </div>
+              <div class="card"
+                style="padding:10px 16px; display:flex; align-items:center; justify-content:space-between;">
+                <span style="font-size:.78em; color:var(--ink);">Log today's meals</span>
+                <span class="todo-tag" style="background:rgba(255,180,84,0.15); color:var(--amber);">Diet</span>
+              </div>
+              <div class="card"
+                style="padding:10px 16px; display:flex; align-items:center; justify-content:space-between;">
+                <span style="font-size:.78em; color:var(--ink);">Complete 30 min workout</span>
+                <span class="todo-tag" style="background:rgba(52,215,168,0.15); color:var(--green);">Fitness</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tag">cross-module intelligence</div>
+      </section>
 
+      <!-- ============ 7. MODULES — FINANCE + FITNESS ============ -->
+      <section data-background-class="bgrid">
+        <span class="kicker"><span class="dot"></span>06 · Modules</span>
+        <h2>Finance &amp; Fitness</h2>
+        <div class="split" style="margin-top:12px; gap:24px; align-items:flex-start;">
+          <div>
+            <div class="card" style="border-color:rgba(76,141,255,0.4); padding:20px 22px;">
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+                <div style="font-size:1.5em;">💰</div>
+                <div style="font-family:'Space Grotesk'; font-weight:700; font-size:1.1em; color:var(--blue);">Finance
+                </div>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--blue);"></div><span
+                  style="font-size:.8em; color:var(--ink-dim);">Plaid-connected bank &amp; card sync</span>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--blue);"></div><span
+                  style="font-size:.8em; color:var(--ink-dim);">Monthly budget vs. actual breakdown</span>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--blue);"></div><span
+                  style="font-size:.8em; color:var(--ink-dim);">Spending categories &amp; trends</span>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--blue);"></div><span
+                  style="font-size:.8em; color:var(--ink-dim);">Savings tracker with monthly goal</span>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--blue);"></div><span
+                  style="font-size:.8em; color:var(--ink-dim);">Food budget links directly to grocery spend</span>
+              </div>
+              <div style="margin-top:14px;">
+                <div class="ss-placeholder">[ Finance module screenshot ]</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="card" style="border-color:rgba(52,215,168,0.4); padding:20px 22px;">
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+                <div style="font-size:1.5em;">🏃</div>
+                <div style="font-family:'Space Grotesk'; font-weight:700; font-size:1.1em; color:var(--green);">Fitness
+                </div>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--green);"></div><span
+                  style="font-size:.8em; color:var(--ink-dim);">Apple HealthKit integration</span>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--green);"></div><span
+                  style="font-size:.8em; color:var(--ink-dim);">Activity, stand &amp; calorie progress rings</span>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--green);"></div><span
+                  style="font-size:.8em; color:var(--ink-dim);">Step count &amp; move points tracking</span>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--green);"></div><span
+                  style="font-size:.8em; color:var(--ink-dim);">Recovery &amp; energy level monitoring</span>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--green);"></div><span
+                  style="font-size:.8em; color:var(--ink-dim);">On-device encryption · SOC2-aligned</span>
+              </div>
+              <div style="margin-top:14px;">
+                <div class="ss-placeholder">[ Fitness module screenshot ]</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tag">finance · fitness</div>
+      </section>
+
+      <!-- ============ 8. MODULES — DIET + GROCERIES ============ -->
+      <section data-background-class="bgrid">
+        <span class="kicker"><span class="dot"></span>06 · Modules (cont.)</span>
+        <h2>Diet &amp; Groceries</h2>
+        <div class="split" style="margin-top:12px; gap:24px; align-items:flex-start;">
+          <div>
+            <div class="card" style="border-color:rgba(255,180,84,0.4); padding:20px 22px;">
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+                <div style="font-size:1.5em;">🥗</div>
+                <div style="font-family:'Space Grotesk'; font-weight:700; font-size:1.1em; color:var(--amber);">Diet
+                </div>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--amber);"></div><span
+                  style="font-size:.8em; color:var(--ink-dim);">Daily meal logging &amp; calorie tracking</span>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--amber);"></div><span
+                  style="font-size:.8em; color:var(--ink-dim);">Macro breakdown — protein, carbs, fat</span>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--amber);"></div><span
+                  style="font-size:.8em; color:var(--ink-dim);">Caloric intake vs. daily goal ring</span>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--amber);"></div><span
+                  style="font-size:.8em; color:var(--ink-dim);">Nutrition scores surface in cross-insights</span>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--amber);"></div><span
+                  style="font-size:.8em; color:var(--ink-dim);">Auto-links meals to grocery list</span>
+              </div>
+              <div style="margin-top:14px;">
+                <div class="ss-placeholder">[ Diet module screenshot ]</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="card" style="border-color:rgba(148,163,184,0.25); padding:20px 22px;">
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+                <div style="font-size:1.5em;">🛒</div>
+                <div style="font-family:'Space Grotesk'; font-weight:700; font-size:1.1em; color:var(--ink);">Groceries
+                </div>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--ink-dim);"></div><span
+                  style="font-size:.8em; color:var(--ink-dim);">Smart list built from your diet plan</span>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--ink-dim);"></div><span
+                  style="font-size:.8em; color:var(--ink-dim);">Grocery spend tracked against food budget</span>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--ink-dim);"></div><span
+                  style="font-size:.8em; color:var(--ink-dim);">Check off items, carry-forward list</span>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--ink-dim);"></div><span
+                  style="font-size:.8em; color:var(--ink-dim);">One purchase → updates diet &amp; finance</span>
+              </div>
+              <div class="feat">
+                <div class="feat-dot" style="background:var(--ink-dim);"></div><span
+                  style="font-size:.8em; color:var(--ink-dim);">Connects all three modules in one action</span>
+              </div>
+              <div style="margin-top:14px;">
+                <div class="ss-placeholder">[ Groceries module screenshot ]</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tag">diet · groceries</div>
+      </section>
+
+      <!-- ============ 9. FUTURE SCOPE ============ -->
+      <section data-background-class="bgrid">
+        <span class="kicker"><span class="dot"></span>07 · What's Next</span>
+        <h2>Future scope</h2>
+        <div class="grid2" style="gap:14px; margin-top:10px;">
+          <div class="card" style="border-color:rgba(52,215,168,0.3);">
+            <div style="font-size:1.3em; margin-bottom:10px;">🤖</div>
+            <div style="font-family:'Space Grotesk'; font-weight:700; color:var(--ink); margin-bottom:6px;">Local LLM
+              engine</div>
+            <div style="font-size:.8em; color:var(--ink-dim); line-height:1.65;">On-device model for deeper pattern
+              detection — fully private, nothing leaves your phone.</div>
+          </div>
+          <div class="card" style="border-color:rgba(76,141,255,0.3);">
+            <div style="font-size:1.3em; margin-bottom:10px;">🔔</div>
+            <div style="font-family:'Space Grotesk'; font-weight:700; color:var(--ink); margin-bottom:6px;">Smart
+              notifications</div>
+            <div style="font-size:.8em; color:var(--ink-dim); line-height:1.65;">Timely, personalized nudges — spend
+              alerts, meal reminders, and recovery tips exactly when you need them.</div>
+          </div>
+          <div class="card" style="border-color:rgba(255,180,84,0.3);">
+            <div style="font-size:1.3em; margin-bottom:10px;">🔬</div>
+            <div style="font-family:'Space Grotesk'; font-weight:700; color:var(--ink); margin-bottom:6px;">Food scanner
+            </div>
+            <div style="font-size:.8em; color:var(--ink-dim); line-height:1.65;">Scan a meal → auto-log calories →
+              suggest it for your grocery list. Zero manual entry, full loop closed.</div>
+          </div>
+          <div class="card" style="border-color:rgba(148,163,184,0.2);">
+            <div style="font-size:1.3em; margin-bottom:10px;">🏆</div>
+            <div style="font-family:'Space Grotesk'; font-weight:700; color:var(--ink); margin-bottom:6px;">Daily
+              check-in &amp; points</div>
+            <div style="font-size:.8em; color:var(--ink-dim); line-height:1.65;">Gamified engagement — streaks and
+              points encourage daily planning across all three domains.</div>
+          </div>
+        </div>
+        <div class="tag">roadmap</div>
+      </section>
+
+      <!-- ============ 10. Q&A ============ -->
+      <section data-background-class="bgrid">
+        <div
+          style="height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+          <span class="kicker" style="margin:0 auto 22px;"><span class="dot"></span>Q &amp; A</span>
+          <h1 style="font-size:3.6em;">Questions?</h1>
+          <p style="max-width:28em; font-size:1.05em; margin-top:14px;">
+            We'd love your feedback, challenges, and ideas for LifeOS.
+          </p>
+          <div class="logo-row" style="justify-content:center; margin-top:44px; margin-bottom:0;">
+            <div class="logo-mark">L</div>
+            <div class="logo-word">Life<b>OS</b></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 11. THANK YOU ============ -->
+      <section data-background-class="bgrid">
+        <div
+          style="height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+          <div class="logo-row" style="justify-content:center; margin-bottom:18px;">
+            <div class="logo-mark">L</div>
+            <div class="logo-word">Life<b>OS</b></div>
+          </div>
+          <h1 style="font-size:3.4em;">Thank you.</h1>
+          <p style="max-width:26em; font-size:1em; margin-top:12px;">
+            One operating system for your money, body, and time.
+          </p>
+          <div style="display:flex; gap:10px; margin-top:34px; flex-wrap:wrap; justify-content:center;">
+            <span class="pill">Chandra Likhitha Chopparapu</span>
+            <span class="pill">Sai Chaitanya Ampabathina</span>
+            <span class="pill">Divya Sai Pinnamaneni</span>
+          </div>
+          <div style="margin-top:12px;">
+            <span class="pill">v0-lifeops.vercel.app</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
   </div>
-</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.js"></script>
-<script>
-  Reveal.initialize({
-    hash:true,
-    controls:true,
-    progress:true,
-    center:false,
-    transition:'slide',
-    width:1280,
-    height:720,
-    margin:0.04
-  });
-</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      controls: true,
+      progress: true,
+      center: false,
+      transition: 'slide',
+      width: 1280,
+      height: 720,
+      margin: 0.04
+    });
+  </script>
 </body>
+
 </html>
