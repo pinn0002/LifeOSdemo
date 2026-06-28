@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LifeOS — Final Demo Pitch</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/black.css" id="theme">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:        #060B14;
+    --bg-soft:   #0A1326;
+    --panel:     #0F1B33;
+    --line:      rgba(148,163,184,0.14);
+    --ink:       #ECF1F8;
+    --ink-dim:   #93A2BC;
+    --blue:      #4C8DFF;
+    --blue-dim:  #1E3A66;
+    --green:     #34D7A8;
+    --green-dim: #103D32;
+    --amber:     #FFB454; /* used sparingly, only for "Ask" emphasis */
+    --r: 18px;
+  }
+
+  html, body { background: var(--bg); }
+
+  .reveal { font-family: 'Inter', sans-serif; color: var(--ink); }
+  .reveal .slides{ text-align:left; }
+  /* ---------- never clip content: every slide scrolls if it overflows ---------- */
+  .reveal .slides section{
+    overflow-y:auto;
+    overflow-x:hidden;
+    max-height:100%;
+    scrollbar-width:thin;
+    scrollbar-color:rgba(148,163,184,0.35) transparent;
+  }
+  .reveal .slides section::-webkit-scrollbar{ width:8px; }
+  .reveal .slides section::-webkit-scrollbar-thumb{ background:rgba(148,163,184,0.35); border-radius:8px; }
+  .reveal .slides section::-webkit-scrollbar-track{ background:transparent; }
+
+  .reveal h1, .reveal h2, .reveal h3 {
+    font-family:'Space Grotesk', sans-serif;
+    text-transform:none;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+  .reveal h1{ font-size:2.6em; font-weight:700; }
+  .reveal h2{ font-size:1.9em; font-weight:700; }
+  .reveal h3{ font-size:1.2em; font-weight:600; color:var(--ink-dim); }
+  .reveal p, .reveal li{ color:var(--ink-dim); }
+  .reveal section{ padding:40px 64px; }
+
+  .mono{ font-family:'JetBrains Mono', monospace; }
+
+  /* ---------- background grid / atmosphere ---------- */
+  .reveal .slide-background.bgrid{
+    background:
+      radial-gradient(circle at 18% 12%, rgba(76,141,255,0.16), transparent 38%),
+      radial-gradient(circle at 82% 86%, rgba(52,215,168,0.13), transparent 42%),
+      var(--bg);
+  }
+
+  /* ---------- eyebrow / kicker ---------- */
+  .kicker{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.5em; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--green); margin-bottom:18px;
+  }
+  .kicker .dot{ width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 10px var(--green); }
+
+  /* ---------- generic two-col layout ---------- */
+  .split{ display:flex; gap:48px; align-items:center; height:100%; }
+  .split > div{ flex:1; }
+
+  /* ---------- pill / chip ---------- */
+  .pill{
+    display:inline-block; padding:6px 14px; border-radius:999px;
+    border:1px solid var(--line); font-size:.45em; color:var(--ink-dim);
+    font-family:'JetBrains Mono',monospace; letter-spacing:.04em;
+  }
+
+  /* ---------- card ---------- */
+  .card{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--r);
+    padding:24px 28px;
+  }
+
+  /* ---------- big stat ---------- */
+  .stat{ font-family:'Space Grotesk',sans-serif; font-weight:700; line-height:1; }
+  .stat-num{ font-size:3.4em; background:linear-gradient(90deg,var(--blue),var(--green)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .stat-label{ font-size:.46em; color:var(--ink-dim); font-family:'Inter'; font-weight:500; text-transform:uppercase; letter-spacing:.06em; }
+
+  /* ---------- title slide ---------- */
+  .title-wrap{ height:100%; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; }
+  .logo-row{ display:flex; align-items:center; gap:14px; margin-bottom:28px; }
+  .logo-mark{
+    width:44px; height:44px; border-radius:12px;
+    background:linear-gradient(135deg,var(--blue),var(--green));
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Space Grotesk'; font-weight:700; font-size:20px; color:#06101F;
+  }
+  .logo-word{ font-family:'Space Grotesk'; font-weight:700; font-size:1.3em; }
+  .logo-word b{ color:var(--green); font-weight:700; }
+
+  /* ---------- phone mock (status quo) ---------- */
+  .phone{
+    width:230px; margin:0 auto; border-radius:34px; border:1px solid var(--line);
+    background:var(--bg-soft); padding:16px; box-shadow:0 30px 80px -20px rgba(0,0,0,0.6);
+  }
+  .phone .screen{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
+  .app-icon{
+    aspect-ratio:1; border-radius:16px; display:flex; align-items:center; justify-content:center;
+    font-size:1.4em; color:#06101F; font-weight:700; font-family:'Space Grotesk';
+    box-shadow:0 6px 18px -6px rgba(0,0,0,.5);
+  }
+  .app-icon.shake{ animation:wob 2.6s ease-in-out infinite; }
+  @keyframes wob{ 0%,100%{transform:rotate(0)} 50%{transform:rotate(-3deg)} }
+
+  /* ---------- loop diagram (thesis) ---------- */
+  .loop-wrap{ display:flex; justify-content:center; align-items:center; height:100%; }
+  .loop-node{
+    text-align:center; padding:22px 26px; border-radius:16px; border:1px solid var(--line);
+    background:var(--panel); font-family:'Space Grotesk'; font-weight:600;
+  }
+  .loop-node small{ display:block; font-family:'Inter'; font-weight:400; color:var(--ink-dim); font-size:.6em; margin-top:6px; }
+
+  /* ---------- demo slide ---------- */
+  .demo-frame{
+    border:1px solid var(--line); border-radius:var(--r); background:var(--bg-soft);
+    padding:10px; box-shadow:0 30px 70px -25px rgba(0,0,0,.7);
+  }
+  .demo-bar{ display:flex; gap:6px; padding:4px 8px 12px; }
+  .demo-bar span{ width:10px; height:10px; border-radius:50%; background:var(--line); }
+
+  /* ---------- progress flow ---------- */
+  .flow{ display:flex; align-items:center; justify-content:center; gap:14px; }
+  .flow .arrow{ color:var(--ink-dim); font-size:1.4em; }
+
+  /* ---------- footer tag on every content slide ---------- */
+  .tag{
+    position:absolute; bottom:26px; right:64px; font-family:'JetBrains Mono';
+    font-size:.4em; color:var(--ink-dim); letter-spacing:.08em;
+  }
+
+  /* ---------- table-ish appendix ---------- */
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+
+  .reveal .progress{ color:var(--green); height:3px; }
+  .reveal .controls{ color:var(--ink-dim); }
+</style>
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <!-- ============ 1. TITLE ============ -->
+    <section data-background-class="bgrid">
+      <div class="title-wrap">
+        <div class="logo-row">
+          <div class="logo-mark">L</div>
+          <div class="logo-word">Life<b>OS</b></div>
+        </div>
+        <span class="kicker"><span class="dot"></span>Final Demo · Hackathon Pitch</span>
+        <h1 style="max-width:9.5em; font-size:3em;">One operating system for your money, body, and time.</h1>
+        <p style="max-width:30em; font-size:1.05em; margin-top:10px;">
+          LifeOS unifies finance, nutrition, and fitness data into a single live model —
+          so one action automatically updates everything else.
+        </p>
+        <p class="pill" style="margin-top:30px;">Team LifeOS · [presenter names] · [email]</p>
+      </div>
+    </section>
+
+    <!-- ============ 2. STATUS QUO / PROBLEM ============ -->
+    <section data-background-class="bgrid">
+      <span class="kicker"><span class="dot"></span>01 · The Problem</span>
+      <h2 style="max-width:11em;">The fragmented self</h2>
+      <div class="split" style="margin-top:10px;">
+        <div>
+          <p style="font-size:1.1em; max-width:24em;">
+            People run their life through four or five apps that never talk to each other.
+            Every one of them wants a subscription. None of them know the others exist.
+          </p>
+          <div style="margin-top:34px;" class="stat">
+            <div class="stat-num">4–5</div>
+            <div class="stat-label">disconnected apps per person, per category</div>
+          </div>
+        </div>
+        <div>
+          <div class="phone">
+            <div class="screen">
+              <div class="app-icon shake" style="background:#2A6BFF;">M</div>
+              <div class="app-icon shake" style="background:#34D7A8; animation-delay:.3s;">F</div>
+              <div class="app-icon shake" style="background:#FF6B6B; animation-delay:.6s;">S</div>
+              <div class="app-icon shake" style="background:#FFB454; animation-delay:.9s;">H</div>
+              <div class="app-icon shake" style="background:#8B6BFF; animation-delay:1.2s;">B</div>
+              <div class="app-icon" style="background:var(--line); color:var(--ink-dim);">+12</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tag">app fatigue · data silos</div>
+    </section>
+
+    <!-- ============ 3. CORE THESIS ============ -->
+    <section data-background-class="bgrid">
+      <span class="kicker"><span class="dot"></span>02 · The Thesis</span>
+      <h2>One model. Three signals.</h2>
+      <div class="loop-wrap">
+        <svg viewBox="0 0 760 360" width="100%" style="max-width:760px;">
+          <defs>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6" fill="none" stroke="#5C6B85" stroke-width="1.4"/>
+            </marker>
+          </defs>
+          <path d="M 260 90 A 220 220 0 0 1 500 90" fill="none" stroke="#5C6B85" stroke-width="1.6" marker-end="url(#arrow)"/>
+          <path d="M 600 220 A 220 220 0 0 1 480 320" fill="none" stroke="#5C6B85" stroke-width="1.6" marker-end="url(#arrow)"/>
+          <path d="M 280 320 A 220 220 0 0 1 160 220" fill="none" stroke="#5C6B85" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+          <g transform="translate(380,70)">
+            <rect x="-110" y="-32" width="220" height="64" rx="16" fill="#0F1B33" stroke="rgba(148,163,184,0.18)"/>
+            <text x="0" y="2" text-anchor="middle" fill="#ECF1F8" font-family="Space Grotesk" font-weight="700" font-size="22">Finance</text>
+            <text x="0" y="22" text-anchor="middle" fill="#93A2BC" font-family="Inter" font-size="11">spend · cash flow</text>
+          </g>
+          <g transform="translate(610,250)">
+            <rect x="-110" y="-32" width="220" height="64" rx="16" fill="#0F1B33" stroke="rgba(148,163,184,0.18)"/>
+            <text x="0" y="2" text-anchor="middle" fill="#ECF1F8" font-family="Space Grotesk" font-weight="700" font-size="22">Nutrition</text>
+            <text x="0" y="22" text-anchor="middle" fill="#93A2BC" font-family="Inter" font-size="11">meals · groceries</text>
+          </g>
+          <g transform="translate(150,250)">
+            <rect x="-110" y="-32" width="220" height="64" rx="16" fill="#0F1B33" stroke="rgba(148,163,184,0.18)"/>
+            <text x="0" y="2" text-anchor="middle" fill="#ECF1F8" font-family="Space Grotesk" font-weight="700" font-size="22">Fitness</text>
+            <text x="0" y="22" text-anchor="middle" fill="#93A2BC" font-family="Inter" font-size="11">training · recovery</text>
+          </g>
+
+          <circle cx="380" cy="190" r="46" fill="none" stroke="#34D7A8" stroke-width="1.4" stroke-dasharray="3 5"/>
+          <text x="380" y="186" text-anchor="middle" fill="#34D7A8" font-family="JetBrains Mono" font-size="11">LIFEOS</text>
+          <text x="380" y="202" text-anchor="middle" fill="#34D7A8" font-family="JetBrains Mono" font-size="11">MODEL</text>
+        </svg>
+      </div>
+      <p style="text-align:center; max-width:34em; margin:18px auto 0; font-size:1.05em;">
+        Money decisions shape health outcomes. Health shapes energy, focus, and earning capacity.
+        LifeOS is the first platform built directly on that loop — not three dashboards bolted together.
+      </p>
+      <div class="tag">the unfair advantage</div>
+    </section>
+
+    <!-- ============ 4. LIVE DEMO ============ -->
+    <section data-background-class="bgrid">
+      <span class="kicker"><span class="dot"></span>03 · Live Demo</span>
+      <h2>Watch one action move the whole model</h2>
+      <div class="split" style="margin-top:8px;">
+        <div style="flex:1.3;">
+          <div class="demo-frame">
+            <div class="demo-bar"><span></span><span></span><span></span></div>
+            <div style="aspect-ratio:16/9; border-radius:10px; background:linear-gradient(135deg,#0A1326,#0F1B33); display:flex; align-items:center; justify-content:center; color:var(--ink-dim); font-family:'JetBrains Mono'; font-size:.85em;">
+              [ switch to live LifeOS app here ]
+            </div>
+          </div>
+        </div>
+        <div style="flex:1;">
+          <div class="flow" style="flex-direction:column; align-items:flex-start; gap:18px;">
+            <div class="card" style="width:100%;"><b style="font-family:'Space Grotesk';">1.</b> Log one grocery transaction</div>
+            <div class="card" style="width:100%; border-color:rgba(76,141,255,0.4);"><b style="font-family:'Space Grotesk'; color:var(--blue);">2.</b> Nutrition log updates automatically</div>
+            <div class="card" style="width:100%; border-color:rgba(52,215,168,0.4);"><b style="font-family:'Space Grotesk'; color:var(--green);">3.</b> Training plan rebalances itself</div>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:24px; max-width:34em;">No manual syncing, no separate logging. One input, three systems update in real time.</p>
+      <div class="tag">the "wow" moment</div>
+    </section>
+
+    <!-- ============ 5. MARKET & MONETIZATION ============ -->
+    <section data-background-class="bgrid">
+      <span class="kicker"><span class="dot"></span>04 · Market &amp; Business Model</span>
+      <h2>Two huge markets, one subscription</h2>
+      <div class="split">
+        <div>
+          <div class="grid2">
+            <div class="card">
+              <div class="stat"><div class="stat-num" style="font-size:2.2em;">$XXB</div><div class="stat-label">Health &amp; fitness app market</div></div>
+            </div>
+            <div class="card">
+              <div class="stat"><div class="stat-num" style="font-size:2.2em;">$XXB</div><div class="stat-label">Personal finance / budgeting market</div></div>
+            </div>
+          </div>
+          <p style="margin-top:18px; font-size:.95em;">[Replace $XXB with sourced TAM figures for each market.]</p>
+        </div>
+        <div>
+          <div class="card" style="background:var(--bg-soft);">
+            <p style="color:var(--ink-dim); font-size:.85em; margin-bottom:14px;">Today, people pay for three apps separately</p>
+            <div class="flow">
+              <div class="stat"><div class="stat-num" style="font-size:1.6em;">$10</div><div class="stat-label">finance</div></div>
+              <div class="arrow">+</div>
+              <div class="stat"><div class="stat-num" style="font-size:1.6em;">$10</div><div class="stat-label">diet</div></div>
+              <div class="arrow">+</div>
+              <div class="stat"><div class="stat-num" style="font-size:1.6em;">$10</div><div class="stat-label">fitness</div></div>
+            </div>
+            <div style="text-align:center; margin:14px 0; color:var(--ink-dim); font-family:'JetBrains Mono'; font-size:.75em;">becomes</div>
+            <div style="text-align:center;">
+              <div class="stat"><div class="stat-num" style="font-size:2.6em;">$15/mo</div><div class="stat-label">one unified LifeOS dashboard</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tag">replacing $30/mo with $15/mo</div>
+    </section>
+
+    <!-- ============ 6. SECURITY & ROADMAP ============ -->
+    <section data-background-class="bgrid">
+      <span class="kicker"><span class="dot"></span>05 · Trust &amp; What's Next</span>
+      <h2>Secure today. Smarter tomorrow.</h2>
+      <div class="split">
+        <div>
+          <h3 style="margin-bottom:12px;">Locked down from day one</h3>
+          <div class="card" style="margin-bottom:12px;">Plaid integration · SOC2-compliant tokens</div>
+          <div class="card">Apple HealthKit · on-device encryption</div>
+        </div>
+        <div>
+          <h3 style="margin-bottom:12px;">Next milestones</h3>
+          <div class="card" style="margin-bottom:12px; border-color:rgba(52,215,168,0.4);">Proprietary local LLM for deeper pattern detection</div>
+          <div class="card" style="border-color:rgba(76,141,255,0.4);">Example: sleep deprivation → impulse grocery spend</div>
+        </div>
+      </div>
+      <div class="tag">security · roadmap</div>
+    </section>
+
+    <!-- ============ 7. THE ASK / CLOSING ============ -->
+    <section data-background-class="bgrid">
+      <span class="kicker"><span class="dot"></span>The Ask</span>
+      <h2>Why LifeOS wins</h2>
+      <ul style="font-size:1.1em; max-width:30em; line-height:1.7;">
+        <li>One model across finance, nutrition, and fitness — not three dashboards</li>
+        <li>A single $15/mo subscription replacing $30+/mo across separate apps</li>
+        <li>Security and data partnerships already in place: Plaid, HealthKit</li>
+        <li>[State your specific ask: investment / next-round support / partnership]</li>
+      </ul>
+      <div class="logo-row" style="margin-top:40px;">
+        <div class="logo-mark">L</div>
+        <div class="logo-word">Life<b>OS</b></div>
+        <span class="pill">[email] · [website]</span>
+      </div>
+      <div class="tag">connect with LifeOS</div>
+    </section>
+
+    <!-- ============ 8. APPENDIX (backup, not presented live) ============ -->
+    <section data-background-class="bgrid">
+      <span class="kicker"><span class="dot"></span>Appendix · Q&amp;A backup</span>
+      <h2>Backup detail</h2>
+      <div class="grid2">
+        <div class="card">Competition &amp; comparables</div>
+        <div class="card">Financial projections</div>
+        <div class="card">Architecture / tech stack</div>
+        <div class="card">Roadmap timeline</div>
+        <div class="card">Team backgrounds</div>
+        <div class="card">Use of funds / next steps</div>
+      </div>
+      <p style="margin-top:18px; font-size:.85em;">Keep this slide for Q&amp;A only — don't present it live. Answer on the closing slide, dive in here if asked.</p>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash:true,
+    controls:true,
+    progress:true,
+    center:false,
+    transition:'slide',
+    width:1280,
+    height:720,
+    margin:0.04
+  });
+</script>
+</body>
+</html>
