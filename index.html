@@ -367,6 +367,20 @@
       min-height: 100px;
     }
 
+    /* screenshot image */
+    .shot {
+      display: block;
+      max-width: 100%;
+      max-height: 520px;
+      width: auto;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: 0 16px 40px -18px rgba(0, 0, 0, 0.65);
+    }
+
     .reveal .progress {
       color: var(--green);
       height: 3px;
@@ -597,13 +611,9 @@
       <section data-background-class="bgrid">
         <span class="kicker"><span class="dot"></span>04 · Modules</span>
         <h2>Finance &amp; Fitness</h2>
-        <div class="grid2" style="margin-top:18px; gap:24px;">
-          <div class="ss-placeholder" style="min-height:430px;">
-            [ Finance screenshot ]
-          </div>
-          <div class="ss-placeholder" style="min-height:430px;">
-            [ Fitness screenshot ]
-          </div>
+        <div class="grid2" style="margin-top:18px; gap:24px; align-items:center;">
+          <img class="shot" src="images/finance.png" alt="Finance module">
+          <img class="shot" src="images/fitness.png" alt="Fitness module">
         </div>
         <div class="tag">finance · fitness</div>
       </section>
@@ -612,13 +622,9 @@
       <section data-background-class="bgrid">
         <span class="kicker"><span class="dot"></span>04 · Modules (cont.)</span>
         <h2>Diet &amp; Groceries</h2>
-        <div class="grid2" style="margin-top:18px; gap:24px;">
-          <div class="ss-placeholder" style="min-height:430px;">
-            [ Diet screenshot ]
-          </div>
-          <div class="ss-placeholder" style="min-height:430px;">
-            [ Groceries screenshot ]
-          </div>
+        <div class="grid2" style="margin-top:18px; gap:24px; align-items:center;">
+          <img class="shot" src="images/diet.png" alt="Diet module">
+          <img class="shot" src="images/groceries.png" alt="Groceries module">
         </div>
         <div class="tag">diet · groceries</div>
       </section>
@@ -628,9 +634,7 @@
         <span class="kicker"><span class="dot"></span>05 · Dashboard</span>
         <h2>Everything at a glance</h2>
         <div style="margin-top:16px;">
-          <div class="ss-placeholder" style="min-height:460px;">
-            [ Add dashboard screenshot here ]
-          </div>
+          <img class="shot" src="images/dashboard.webp" alt="LifeOS dashboard" style="max-height:540px;">
         </div>
       </section>
 
@@ -639,9 +643,7 @@
         <span class="kicker"><span class="dot"></span>06 · Insights</span>
         <h2>Where the magic happens</h2>
         <div style="margin-top:16px;">
-          <div class="ss-placeholder" style="min-height:460px;">
-            [ Add insights screenshot here ]
-          </div>
+          <img class="shot" src="images/insights.png" alt="LifeOS cross-module insights" style="max-height:540px;">
         </div>
       </section>
 
