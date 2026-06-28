@@ -36,6 +36,7 @@
     .reveal {
       font-family: 'Inter', sans-serif;
       color: var(--ink);
+      font-size: 34px;
     }
 
     .reveal .slides {
@@ -61,8 +62,9 @@
     }
 
     .reveal h2 {
-      font-size: 1.9em;
+      font-size: 1.4em;
       font-weight: 700;
+      margin: 0 0 8px;
     }
 
     .reveal h3 {
@@ -76,8 +78,9 @@
       color: var(--ink-dim);
     }
 
-    .reveal section {
-      padding: 40px 64px;
+    .reveal .slides section {
+      box-sizing: border-box;
+      padding: 30px 60px;
     }
 
     .mono {
@@ -102,7 +105,7 @@
       letter-spacing: .18em;
       text-transform: uppercase;
       color: var(--green);
-      margin-bottom: 18px;
+      margin-bottom: 12px;
     }
 
     .kicker .dot {
@@ -153,7 +156,7 @@
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: var(--r);
-      padding: 24px 28px;
+      padding: 14px 20px;
     }
 
     /* stat */
@@ -193,7 +196,7 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      margin-bottom: 28px;
+      margin-bottom: 18px;
     }
 
     .logo-mark {
@@ -278,7 +281,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .survey-bar-track {
@@ -387,55 +390,51 @@
             <div class="logo-word">Life<b>OS</b></div>
           </div>
           <span class="kicker"><span class="dot"></span>Chandra Likhitha · Sai Chaitanya · Divya Sai</span>
-          <h1 style="max-width:10em; font-size:2.8em; line-height:1.15;">
+          <h1 style="max-width:11em; font-size:2.5em; line-height:1.15;">
             One operating system for your money, body, and time.
           </h1>
-          <div style="display:flex; gap:12px; margin-top:30px; flex-wrap:wrap; align-items:center;">
-            <span class="pill">Finance · Fitness · Diet · Groceries</span>
-          </div>
-          <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap;">
-            <span class="pill">Chandra Likhitha Chopparapu</span>
-            <span class="pill">Sai Chaitanya Ampabathina</span>
-            <span class="pill">Divya Sai Pinnamaneni</span>
-          </div>
+          <p style="margin-top:18px; font-size:.9em; max-width:24em;">
+            A single app that unifies finance, fitness, diet, and groceries — so your
+            data finally works together.
+          </p>
         </div>
       </section>
 
       <!-- ============ 2. PROBLEM ============ -->
       <section data-background-class="bgrid">
         <span class="kicker"><span class="dot"></span>01 · The Problem</span>
-        <h2 style="max-width:13em;">Your life runs on apps that don't talk to each other.</h2>
-        <div class="split" style="margin-top:14px; gap:40px; align-items:flex-start;">
+        <h2 style="margin-bottom:6px;">Your life runs on apps that don't talk to each other.</h2>
+        <div class="split" style="margin-top:10px; gap:40px; align-items:flex-start;">
           <div>
-            <div class="grid2" style="gap:12px;">
-              <div class="card" style="padding:18px 20px;">
-                <div style="font-size:1.5em; margin-bottom:6px;">💸</div>
+            <div class="grid2" style="gap:10px;">
+              <div class="card" style="padding:14px 18px;">
+                <div style="font-size:1.4em; margin-bottom:4px;">💸</div>
                 <div style="font-family:'Space Grotesk'; font-weight:700; color:var(--ink); font-size:.95em;">Finance
                 </div>
                 <div style="font-size:.75em; color:var(--ink-dim); margin-top:4px;">Robinhood, Mint, bank apps</div>
               </div>
-              <div class="card" style="padding:18px 20px;">
-                <div style="font-size:1.5em; margin-bottom:6px;">🥗</div>
+              <div class="card" style="padding:14px 18px;">
+                <div style="font-size:1.4em; margin-bottom:4px;">🥗</div>
                 <div style="font-family:'Space Grotesk'; font-weight:700; color:var(--ink); font-size:.95em;">Diet</div>
                 <div style="font-size:.75em; color:var(--ink-dim); margin-top:4px;">MyFitnessPal, Cronometer</div>
               </div>
-              <div class="card" style="padding:18px 20px;">
-                <div style="font-size:1.5em; margin-bottom:6px;">🏃</div>
+              <div class="card" style="padding:14px 18px;">
+                <div style="font-size:1.4em; margin-bottom:4px;">🏃</div>
                 <div style="font-family:'Space Grotesk'; font-weight:700; color:var(--ink); font-size:.95em;">Fitness
                 </div>
                 <div style="font-size:.75em; color:var(--ink-dim); margin-top:4px;">Apple Health, Strava</div>
               </div>
-              <div class="card" style="padding:18px 20px;">
-                <div style="font-size:1.5em; margin-bottom:6px;">🛒</div>
+              <div class="card" style="padding:14px 18px;">
+                <div style="font-size:1.4em; margin-bottom:4px;">🛒</div>
                 <div style="font-family:'Space Grotesk'; font-weight:700; color:var(--ink); font-size:.95em;">Groceries
                 </div>
                 <div style="font-size:.75em; color:var(--ink-dim); margin-top:4px;">Separate lists, no sync</div>
               </div>
             </div>
           </div>
-          <div style="display:flex; flex-direction:column; align-items:center; gap:24px;">
+          <div style="display:flex; flex-direction:column; align-items:center; gap:18px;">
             <div class="stat" style="text-align:center;">
-              <div class="stat-num">4–5</div>
+              <div class="stat-num" style="font-size:2.7em;">4–5</div>
               <div class="stat-label">disconnected apps per person</div>
             </div>
             <div style="display:flex; flex-direction:column; gap:8px; width:220px;">
@@ -456,14 +455,14 @@
       <!-- ============ 3. SURVEY ============ -->
       <section data-background-class="bgrid">
         <span class="kicker"><span class="dot"></span>02 · User Validation</span>
-        <h2>What real users told us</h2>
-        <p style="margin-bottom:20px; font-size:.9em;">Survey of 10 users · collected before this demo</p>
+        <h2 style="margin-bottom:4px;">What real users told us</h2>
+        <p style="margin-bottom:14px; font-size:.85em;">Survey of 10 users · collected before this demo</p>
         <div class="grid2" style="gap:16px; align-items:start;">
           <!-- Left -->
-          <div style="display:flex; flex-direction:column; gap:14px;">
+          <div style="display:flex; flex-direction:column; gap:12px;">
             <div class="card">
               <div
-                style="font-family:'JetBrains Mono'; font-size:.48em; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-dim); margin-bottom:14px;">
+                style="font-family:'JetBrains Mono'; font-size:.48em; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-dim); margin-bottom:9px;">
                 Biggest frustration</div>
               <div class="survey-bar">
                 <div style="flex:1;">
@@ -486,7 +485,7 @@
             </div>
             <div class="card">
               <div
-                style="font-family:'JetBrains Mono'; font-size:.48em; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-dim); margin-bottom:14px;">
+                style="font-family:'JetBrains Mono'; font-size:.48em; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-dim); margin-bottom:9px;">
                 Money ↔ Health collision in the last month?</div>
               <div class="survey-bar">
                 <div style="flex:1;">
@@ -510,48 +509,38 @@
             </div>
           </div>
           <!-- Right -->
-          <div style="display:flex; flex-direction:column; gap:14px;">
+          <div style="display:flex; flex-direction:column; gap:12px;">
             <div class="card">
               <div
-                style="font-family:'JetBrains Mono'; font-size:.48em; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-dim); margin-bottom:14px;">
+                style="font-family:'JetBrains Mono'; font-size:.48em; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-dim); margin-bottom:9px;">
                 Would pay for LifeOS?</div>
               <div style="display:flex; gap:10px;">
                 <div
-                  style="flex:1; background:var(--green-dim); border:1px solid rgba(52,215,168,0.3); border-radius:12px; padding:14px; text-align:center;">
-                  <div style="font-family:'Space Grotesk'; font-weight:700; font-size:1.8em; color:var(--green);">50%
+                  style="flex:1; background:var(--green-dim); border:1px solid rgba(52,215,168,0.3); border-radius:12px; padding:10px; text-align:center;">
+                  <div style="font-family:'Space Grotesk'; font-weight:700; font-size:1.5em; color:var(--green);">50%
                   </div>
-                  <div style="font-size:.68em; color:var(--ink-dim); margin-top:4px;">Yes</div>
+                  <div style="font-size:.68em; color:var(--ink-dim); margin-top:2px;">Yes</div>
                 </div>
                 <div
-                  style="flex:1; background:rgba(255,180,84,0.1); border:1px solid rgba(255,180,84,0.25); border-radius:12px; padding:14px; text-align:center;">
-                  <div style="font-family:'Space Grotesk'; font-weight:700; font-size:1.8em; color:var(--amber);">30%
+                  style="flex:1; background:rgba(255,180,84,0.1); border:1px solid rgba(255,180,84,0.25); border-radius:12px; padding:10px; text-align:center;">
+                  <div style="font-family:'Space Grotesk'; font-weight:700; font-size:1.5em; color:var(--amber);">30%
                   </div>
-                  <div style="font-size:.68em; color:var(--ink-dim); margin-top:4px;">Maybe</div>
+                  <div style="font-size:.68em; color:var(--ink-dim); margin-top:2px;">Maybe</div>
                 </div>
               </div>
-              <p style="font-size:.72em; margin-top:10px; text-align:center;">→ <b style="color:var(--green);">80% open
+              <p style="font-size:.72em; margin-top:8px; text-align:center;">→ <b style="color:var(--green);">80% open
                   to paying</b> for a unified solution</p>
             </div>
             <div class="card">
               <div
-                style="font-family:'JetBrains Mono'; font-size:.48em; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-dim); margin-bottom:12px;">
-                Most wanted features</div>
-              <div class="feat">
+                style="font-family:'JetBrains Mono'; font-size:.48em; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-dim); margin-bottom:9px;">
+                Most wanted feature</div>
+              <div class="feat" style="margin-bottom:0;">
                 <div class="feat-dot" style="background:var(--green);"></div><span
                   style="font-size:.82em; color:var(--ink);">Cross-module insights</span>
               </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--blue);"></div><span
-                  style="font-size:.82em; color:var(--ink);">Finance tracking</span>
-              </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--blue);"></div><span
-                  style="font-size:.82em; color:var(--ink);">Fitness &amp; Diet</span>
-              </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--blue);"></div><span
-                  style="font-size:.82em; color:var(--ink);">Groceries &amp; To-dos</span>
-              </div>
+              <p style="font-size:.72em; margin-top:10px;">The #1 request — connecting
+                money, body, and time in one view.</p>
             </div>
           </div>
         </div>
@@ -560,35 +549,35 @@
       <!-- ============ 4. SOLUTION ============ -->
       <section data-background-class="bgrid">
         <span class="kicker"><span class="dot"></span>03 · The Solution</span>
-        <h2>One app. Every signal. Zero switching.</h2>
-        <div class="grid3" style="gap:14px; margin-top:22px;">
-          <div class="card" style="border-color:rgba(76,141,255,0.4); padding:20px 22px;">
-            <div style="font-size:1.8em; margin-bottom:10px;">💰</div>
+        <h2 style="margin-bottom:6px;">One app. Every signal. Zero switching.</h2>
+        <div class="grid3" style="gap:14px; margin-top:14px;">
+          <div class="card" style="border-color:rgba(76,141,255,0.4); padding:16px 20px;">
+            <div style="font-size:1.6em; margin-bottom:8px;">💰</div>
             <div
               style="font-family:'Space Grotesk'; font-weight:700; font-size:1.05em; color:var(--blue); margin-bottom:8px;">
               Finance</div>
-            <div style="font-size:.8em; color:var(--ink-dim); line-height:1.6;">Track spending, savings, and budget vs.
+            <div style="font-size:.78em; color:var(--ink-dim); line-height:1.45;">Track spending, savings, and budget vs.
               actuals. Plaid-connected, always live.</div>
           </div>
-          <div class="card" style="border-color:rgba(52,215,168,0.4); padding:20px 22px;">
-            <div style="font-size:1.8em; margin-bottom:10px;">🏃</div>
+          <div class="card" style="border-color:rgba(52,215,168,0.4); padding:16px 20px;">
+            <div style="font-size:1.6em; margin-bottom:8px;">🏃</div>
             <div
               style="font-family:'Space Grotesk'; font-weight:700; font-size:1.05em; color:var(--green); margin-bottom:8px;">
               Fitness</div>
-            <div style="font-size:.8em; color:var(--ink-dim); line-height:1.6;">Activity rings, step counts, and move
+            <div style="font-size:.78em; color:var(--ink-dim); line-height:1.45;">Activity rings, step counts, and move
               points synced from Apple HealthKit.</div>
           </div>
-          <div class="card" style="border-color:rgba(255,180,84,0.4); padding:20px 22px;">
-            <div style="font-size:1.8em; margin-bottom:10px;">🥗</div>
+          <div class="card" style="border-color:rgba(255,180,84,0.4); padding:16px 20px;">
+            <div style="font-size:1.6em; margin-bottom:8px;">🥗</div>
             <div
               style="font-family:'Space Grotesk'; font-weight:700; font-size:1.05em; color:var(--amber); margin-bottom:8px;">
               Diet</div>
-            <div style="font-size:.8em; color:var(--ink-dim); line-height:1.6;">Log meals, track calories and macros,
+            <div style="font-size:.78em; color:var(--ink-dim); line-height:1.45;">Log meals, track calories and macros,
               auto-build grocery lists from your diet plan.</div>
           </div>
         </div>
         <div class="card"
-          style="margin-top:14px; background:linear-gradient(90deg, rgba(76,141,255,0.07), rgba(52,215,168,0.07)); border-color:rgba(52,215,168,0.25); padding:18px 26px;">
+          style="margin-top:14px; background:linear-gradient(90deg, rgba(76,141,255,0.07), rgba(52,215,168,0.07)); border-color:rgba(52,215,168,0.25); padding:14px 24px;">
           <div style="display:flex; align-items:center; gap:16px;">
             <div style="font-size:1.6em;">✨</div>
             <div>
@@ -608,64 +597,12 @@
       <section data-background-class="bgrid">
         <span class="kicker"><span class="dot"></span>04 · Modules</span>
         <h2>Finance &amp; Fitness</h2>
-        <div class="split" style="margin-top:12px; gap:24px; align-items:flex-start;">
-          <div>
-            <div class="card" style="border-color:rgba(76,141,255,0.4); padding:20px 22px;">
-              <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
-                <div style="font-size:1.5em;">💰</div>
-                <div style="font-family:'Space Grotesk'; font-weight:700; font-size:1.1em; color:var(--blue);">Finance
-                </div>
-              </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--blue);"></div><span
-                  style="font-size:.8em; color:var(--ink-dim);">Plaid-connected bank &amp; card sync</span>
-              </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--blue);"></div><span
-                  style="font-size:.8em; color:var(--ink-dim);">Monthly budget vs. actual breakdown</span>
-              </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--blue);"></div><span
-                  style="font-size:.8em; color:var(--ink-dim);">Spending categories &amp; trends</span>
-              </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--blue);"></div><span
-                  style="font-size:.8em; color:var(--ink-dim);">Savings tracker with monthly goal</span>
-              </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--blue);"></div><span
-                  style="font-size:.8em; color:var(--ink-dim);">Food budget links directly to grocery spend</span>
-              </div>
-            </div>
+        <div class="grid2" style="margin-top:18px; gap:24px;">
+          <div class="ss-placeholder" style="min-height:430px;">
+            [ Finance screenshot ]
           </div>
-          <div>
-            <div class="card" style="border-color:rgba(52,215,168,0.4); padding:20px 22px;">
-              <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
-                <div style="font-size:1.5em;">🏃</div>
-                <div style="font-family:'Space Grotesk'; font-weight:700; font-size:1.1em; color:var(--green);">Fitness
-                </div>
-              </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--green);"></div><span
-                  style="font-size:.8em; color:var(--ink-dim);">Apple HealthKit integration</span>
-              </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--green);"></div><span
-                  style="font-size:.8em; color:var(--ink-dim);">Activity, stand &amp; calorie progress rings</span>
-              </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--green);"></div><span
-                  style="font-size:.8em; color:var(--ink-dim);">Step count &amp; move points tracking</span>
-              </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--green);"></div><span
-                  style="font-size:.8em; color:var(--ink-dim);">Recovery &amp; energy level monitoring</span>
-              </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--green);"></div><span
-                  style="font-size:.8em; color:var(--ink-dim);">On-device encryption · SOC2-aligned</span>
-              </div>
-            </div>
+          <div class="ss-placeholder" style="min-height:430px;">
+            [ Fitness screenshot ]
           </div>
         </div>
         <div class="tag">finance · fitness</div>
@@ -675,64 +612,12 @@
       <section data-background-class="bgrid">
         <span class="kicker"><span class="dot"></span>04 · Modules (cont.)</span>
         <h2>Diet &amp; Groceries</h2>
-        <div class="split" style="margin-top:12px; gap:24px; align-items:flex-start;">
-          <div>
-            <div class="card" style="border-color:rgba(255,180,84,0.4); padding:20px 22px;">
-              <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
-                <div style="font-size:1.5em;">🥗</div>
-                <div style="font-family:'Space Grotesk'; font-weight:700; font-size:1.1em; color:var(--amber);">Diet
-                </div>
-              </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--amber);"></div><span
-                  style="font-size:.8em; color:var(--ink-dim);">Daily meal logging &amp; calorie tracking</span>
-              </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--amber);"></div><span
-                  style="font-size:.8em; color:var(--ink-dim);">Macro breakdown — protein, carbs, fat</span>
-              </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--amber);"></div><span
-                  style="font-size:.8em; color:var(--ink-dim);">Caloric intake vs. daily goal ring</span>
-              </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--amber);"></div><span
-                  style="font-size:.8em; color:var(--ink-dim);">Nutrition scores surface in cross-insights</span>
-              </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--amber);"></div><span
-                  style="font-size:.8em; color:var(--ink-dim);">Auto-links meals to grocery list</span>
-              </div>
-            </div>
+        <div class="grid2" style="margin-top:18px; gap:24px;">
+          <div class="ss-placeholder" style="min-height:430px;">
+            [ Diet screenshot ]
           </div>
-          <div>
-            <div class="card" style="border-color:rgba(148,163,184,0.25); padding:20px 22px;">
-              <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
-                <div style="font-size:1.5em;">🛒</div>
-                <div style="font-family:'Space Grotesk'; font-weight:700; font-size:1.1em; color:var(--ink);">Groceries
-                </div>
-              </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--ink-dim);"></div><span
-                  style="font-size:.8em; color:var(--ink-dim);">Smart list built from your diet plan</span>
-              </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--ink-dim);"></div><span
-                  style="font-size:.8em; color:var(--ink-dim);">Grocery spend tracked against food budget</span>
-              </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--ink-dim);"></div><span
-                  style="font-size:.8em; color:var(--ink-dim);">Check off items, carry-forward list</span>
-              </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--ink-dim);"></div><span
-                  style="font-size:.8em; color:var(--ink-dim);">One purchase → updates diet &amp; finance</span>
-              </div>
-              <div class="feat">
-                <div class="feat-dot" style="background:var(--ink-dim);"></div><span
-                  style="font-size:.8em; color:var(--ink-dim);">Connects all three modules in one action</span>
-              </div>
-            </div>
+          <div class="ss-placeholder" style="min-height:430px;">
+            [ Groceries screenshot ]
           </div>
         </div>
         <div class="tag">diet · groceries</div>
