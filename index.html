@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>LifeOS — Final Demo Pitch</title>
+  <title>LifeOS — Pitch</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/black.css" id="theme">
@@ -43,24 +43,7 @@
     }
 
     .reveal .slides section {
-      overflow-y: auto;
-      overflow-x: hidden;
-      max-height: 100%;
-      scrollbar-width: thin;
-      scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
-    }
-
-    .reveal .slides section::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    .reveal .slides section::-webkit-scrollbar-thumb {
-      background: rgba(148, 163, 184, 0.35);
-      border-radius: 8px;
-    }
-
-    .reveal .slides section::-webkit-scrollbar-track {
-      background: transparent;
+      overflow: hidden;
     }
 
     .reveal h1,
@@ -252,22 +235,6 @@
       box-shadow: 0 6px 18px -6px rgba(0, 0, 0, .5);
     }
 
-    .app-icon.shake {
-      animation: wob 2.6s ease-in-out infinite;
-    }
-
-    @keyframes wob {
-
-      0%,
-      100% {
-        transform: rotate(0)
-      }
-
-      50% {
-        transform: rotate(-3deg)
-      }
-    }
-
     /* flow */
     .flow {
       display: flex;
@@ -336,14 +303,6 @@
       width: 3em;
       text-align: right;
       flex-shrink: 0;
-    }
-
-    /* rings */
-    .rings {
-      display: flex;
-      justify-content: center;
-      gap: 36px;
-      align-items: center;
     }
 
     /* insight chip */
@@ -427,14 +386,10 @@
             <div class="logo-mark">L</div>
             <div class="logo-word">Life<b>OS</b></div>
           </div>
-          <span class="kicker"><span class="dot"></span>Final Demo · Hackathon Pitch</span>
+          <span class="kicker"><span class="dot"></span>Chandra Likhitha · Sai Chaitanya · Divya Sai</span>
           <h1 style="max-width:10em; font-size:2.8em; line-height:1.15;">
             One operating system for your money, body, and time.
           </h1>
-          <p style="max-width:32em; font-size:1.05em; margin-top:14px;">
-            LifeOS connects your finances, nutrition, and fitness into a single live model.
-            One action updates everything — no app-switching, no manual logging.
-          </p>
           <div style="display:flex; gap:12px; margin-top:30px; flex-wrap:wrap; align-items:center;">
             <span class="pill">Finance · Fitness · Diet · Groceries</span>
           </div>
@@ -452,10 +407,6 @@
         <h2 style="max-width:13em;">Your life runs on apps that don't talk to each other.</h2>
         <div class="split" style="margin-top:14px; gap:40px; align-items:flex-start;">
           <div>
-            <p style="font-size:1em; max-width:24em; margin-bottom:24px;">
-              People juggle four to five separate apps to track money, meals, and movement —
-              each one siloed, none of them aware the others exist.
-            </p>
             <div class="grid2" style="gap:12px;">
               <div class="card" style="padding:18px 20px;">
                 <div style="font-size:1.5em; margin-bottom:6px;">💸</div>
@@ -500,7 +451,6 @@
             </div>
           </div>
         </div>
-        <div class="tag">the fragmented self</div>
       </section>
 
       <!-- ============ 3. SURVEY ============ -->
@@ -605,18 +555,13 @@
             </div>
           </div>
         </div>
-        <div class="tag">user-validated · n=10</div>
       </section>
 
       <!-- ============ 4. SOLUTION ============ -->
       <section data-background-class="bgrid">
         <span class="kicker"><span class="dot"></span>03 · The Solution</span>
         <h2>One app. Every signal. Zero switching.</h2>
-        <p style="max-width:36em; font-size:1em; margin-bottom:22px;">
-          LifeOS connects your financial transactions, nutritional intake, and physical activity
-          into a single live model — and shows you how they influence each other.
-        </p>
-        <div class="grid3" style="gap:14px;">
+        <div class="grid3" style="gap:14px; margin-top:22px;">
           <div class="card" style="border-color:rgba(76,141,255,0.4); padding:20px 22px;">
             <div style="font-size:1.8em; margin-bottom:10px;">💰</div>
             <div
@@ -657,179 +602,11 @@
             </div>
           </div>
         </div>
-        <div class="tag">finance · fitness · diet</div>
       </section>
 
-      <!-- ============ 5. DASHBOARD ============ -->
+      <!-- ============ 5. MODULES — FINANCE + FITNESS ============ -->
       <section data-background-class="bgrid">
-        <span class="kicker"><span class="dot"></span>04 · Dashboard</span>
-        <h2>Everything at a glance</h2>
-        <div class="split" style="margin-top:10px; gap:36px; align-items:flex-start;">
-          <div style="flex:1.15;">
-            <!-- Rings -->
-            <div class="card" style="padding:22px 24px; margin-bottom:12px;">
-              <div
-                style="font-family:'JetBrains Mono'; font-size:.48em; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-dim); margin-bottom:16px;">
-                Today's progress rings</div>
-              <div class="rings">
-                <div style="text-align:center;">
-                  <svg width="88" height="88" viewBox="0 0 88 88">
-                    <circle cx="44" cy="44" r="36" fill="none" stroke="rgba(76,141,255,0.15)" stroke-width="8" />
-                    <circle cx="44" cy="44" r="36" fill="none" stroke="#4C8DFF" stroke-width="8" stroke-dasharray="226"
-                      stroke-dashoffset="53" stroke-linecap="round" transform="rotate(-90 44 44)" />
-                    <text x="44" y="41" text-anchor="middle" fill="#ECF1F8" font-family="Space Grotesk"
-                      font-weight="700" font-size="13">22</text>
-                    <text x="44" y="54" text-anchor="middle" fill="#93A2BC" font-family="Inter" font-size="8">/ 30
-                      min</text>
-                  </svg>
-                  <div style="font-size:.62em; color:var(--blue); margin-top:5px; font-family:'JetBrains Mono';">
-                    Activity</div>
-                </div>
-                <div style="text-align:center;">
-                  <svg width="88" height="88" viewBox="0 0 88 88">
-                    <circle cx="44" cy="44" r="36" fill="none" stroke="rgba(52,215,168,0.15)" stroke-width="8" />
-                    <circle cx="44" cy="44" r="36" fill="none" stroke="#34D7A8" stroke-width="8" stroke-dasharray="226"
-                      stroke-dashoffset="56" stroke-linecap="round" transform="rotate(-90 44 44)" />
-                    <text x="44" y="41" text-anchor="middle" fill="#ECF1F8" font-family="Space Grotesk"
-                      font-weight="700" font-size="13">9</text>
-                    <text x="44" y="54" text-anchor="middle" fill="#93A2BC" font-family="Inter" font-size="8">/ 12
-                      hrs</text>
-                  </svg>
-                  <div style="font-size:.62em; color:var(--green); margin-top:5px; font-family:'JetBrains Mono';">Stand
-                  </div>
-                </div>
-                <div style="text-align:center;">
-                  <svg width="88" height="88" viewBox="0 0 88 88">
-                    <circle cx="44" cy="44" r="36" fill="none" stroke="rgba(255,180,84,0.15)" stroke-width="8" />
-                    <circle cx="44" cy="44" r="36" fill="none" stroke="#FFB454" stroke-width="8" stroke-dasharray="226"
-                      stroke-dashoffset="79" stroke-linecap="round" transform="rotate(-90 44 44)" />
-                    <text x="44" y="38" text-anchor="middle" fill="#ECF1F8" font-family="Space Grotesk"
-                      font-weight="700" font-size="11">1,400</text>
-                    <text x="44" y="50" text-anchor="middle" fill="#93A2BC" font-family="Inter" font-size="8">/
-                      2,060</text>
-                    <text x="44" y="61" text-anchor="middle" fill="#93A2BC" font-family="Inter"
-                      font-size="7">kcal</text>
-                  </svg>
-                  <div style="font-size:.62em; color:var(--amber); margin-top:5px; font-family:'JetBrains Mono';">
-                    Calories</div>
-                </div>
-              </div>
-            </div>
-            <!-- Stats row -->
-            <div class="grid2" style="gap:10px;">
-              <div class="card" style="padding:14px 18px; border-color:rgba(76,141,255,0.3);">
-                <div style="font-size:.7em; color:var(--ink-dim); margin-bottom:4px;">Saved this month</div>
-                <div style="font-family:'Space Grotesk'; font-weight:700; font-size:1.45em; color:var(--blue);">$2,233
-                </div>
-                <div class="prog-bar" style="margin-top:8px;">
-                  <div class="prog-bar-fill" style="width:75%; background:var(--blue);"></div>
-                </div>
-              </div>
-              <div class="card" style="padding:14px 18px; border-color:rgba(52,215,168,0.3);">
-                <div style="font-size:.7em; color:var(--ink-dim); margin-bottom:4px;">Daily steps</div>
-                <div style="font-family:'Space Grotesk'; font-weight:700; font-size:1.45em; color:var(--green);">7,842
-                </div>
-                <div class="prog-bar" style="margin-top:8px;">
-                  <div class="prog-bar-fill" style="width:78%; background:var(--green);"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div style="flex:1;">
-            <div class="ss-placeholder" style="min-height:320px;">
-              [ Add dashboard screenshot here ]
-            </div>
-          </div>
-        </div>
-        <div class="tag">live dashboard</div>
-      </section>
-
-      <!-- ============ 6. INSIGHTS ============ -->
-      <section data-background-class="bgrid">
-        <span class="kicker"><span class="dot"></span>05 · Insights</span>
-        <h2>Where the magic happens</h2>
-        <div class="split" style="margin-top:10px; gap:36px; align-items:flex-start;">
-          <div style="flex:1.1;">
-            <div
-              style="font-family:'JetBrains Mono'; font-size:.48em; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-dim); margin-bottom:10px;">
-              Cross-module insights</div>
-            <div class="insight-chip">
-              <span class="insight-icon">💪💰</span>
-              <div>
-                <div style="font-family:'Space Grotesk'; font-weight:600; color:var(--ink); font-size:.86em;">Gym
-                  membership paying off</div>
-                <div style="font-size:.76em; color:var(--green); margin-top:3px;">$2.29 / session — best value spend
-                  this month</div>
-              </div>
-            </div>
-            <div class="insight-chip">
-              <span class="insight-icon">😴💸</span>
-              <div>
-                <div style="font-family:'Space Grotesk'; font-weight:600; color:var(--ink); font-size:.86em;">Low energy
-                  → impulse spending</div>
-                <div style="font-size:.76em; color:var(--amber); margin-top:3px;">40% more on takeout on days with &lt;6
-                  hrs sleep</div>
-              </div>
-            </div>
-            <div class="insight-chip" style="margin-bottom:0;">
-              <span class="insight-icon">🥗🏃</span>
-              <div>
-                <div style="font-family:'Space Grotesk'; font-weight:600; color:var(--ink); font-size:.86em;">Nutrition
-                  fuels performance</div>
-                <div style="font-size:.76em; color:var(--blue); margin-top:3px;">High-protein days align with your best
-                  workouts</div>
-              </div>
-            </div>
-            <div style="margin-top:12px;">
-              <div class="ss-placeholder">[ Add insights screenshot here ]</div>
-            </div>
-          </div>
-          <div style="flex:1;">
-            <div
-              style="font-family:'JetBrains Mono'; font-size:.48em; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-dim); margin-bottom:10px;">
-              Yesterday's summary</div>
-            <div class="card" style="padding:16px 20px; margin-bottom:12px;">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                <span style="font-size:.82em; color:var(--ink);">💸 Money</span>
-                <span style="font-size:.75em; color:var(--green); font-family:'JetBrains Mono';">On track</span>
-              </div>
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                <span style="font-size:.82em; color:var(--ink);">🏃 Body</span>
-                <span style="font-size:.75em; color:var(--green); font-family:'JetBrains Mono';">Goal met</span>
-              </div>
-              <div style="display:flex; justify-content:space-between; align-items:center;">
-                <span style="font-size:.82em; color:var(--ink);">⚡ Energy</span>
-                <span style="font-size:.75em; color:var(--amber); font-family:'JetBrains Mono';">Below target</span>
-              </div>
-            </div>
-            <div
-              style="font-family:'JetBrains Mono'; font-size:.48em; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-dim); margin-bottom:8px;">
-              Open to-dos</div>
-            <div style="display:flex; flex-direction:column; gap:6px;">
-              <div class="card"
-                style="padding:10px 16px; display:flex; align-items:center; justify-content:space-between;">
-                <span style="font-size:.78em; color:var(--ink);">Review grocery budget</span>
-                <span class="todo-tag" style="background:rgba(76,141,255,0.15); color:var(--blue);">Finance</span>
-              </div>
-              <div class="card"
-                style="padding:10px 16px; display:flex; align-items:center; justify-content:space-between;">
-                <span style="font-size:.78em; color:var(--ink);">Log today's meals</span>
-                <span class="todo-tag" style="background:rgba(255,180,84,0.15); color:var(--amber);">Diet</span>
-              </div>
-              <div class="card"
-                style="padding:10px 16px; display:flex; align-items:center; justify-content:space-between;">
-                <span style="font-size:.78em; color:var(--ink);">Complete 30 min workout</span>
-                <span class="todo-tag" style="background:rgba(52,215,168,0.15); color:var(--green);">Fitness</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="tag">cross-module intelligence</div>
-      </section>
-
-      <!-- ============ 7. MODULES — FINANCE + FITNESS ============ -->
-      <section data-background-class="bgrid">
-        <span class="kicker"><span class="dot"></span>06 · Modules</span>
+        <span class="kicker"><span class="dot"></span>04 · Modules</span>
         <h2>Finance &amp; Fitness</h2>
         <div class="split" style="margin-top:12px; gap:24px; align-items:flex-start;">
           <div>
@@ -858,9 +635,6 @@
               <div class="feat">
                 <div class="feat-dot" style="background:var(--blue);"></div><span
                   style="font-size:.8em; color:var(--ink-dim);">Food budget links directly to grocery spend</span>
-              </div>
-              <div style="margin-top:14px;">
-                <div class="ss-placeholder">[ Finance module screenshot ]</div>
               </div>
             </div>
           </div>
@@ -891,18 +665,15 @@
                 <div class="feat-dot" style="background:var(--green);"></div><span
                   style="font-size:.8em; color:var(--ink-dim);">On-device encryption · SOC2-aligned</span>
               </div>
-              <div style="margin-top:14px;">
-                <div class="ss-placeholder">[ Fitness module screenshot ]</div>
-              </div>
             </div>
           </div>
         </div>
         <div class="tag">finance · fitness</div>
       </section>
 
-      <!-- ============ 8. MODULES — DIET + GROCERIES ============ -->
+      <!-- ============ 6. MODULES — DIET + GROCERIES ============ -->
       <section data-background-class="bgrid">
-        <span class="kicker"><span class="dot"></span>06 · Modules (cont.)</span>
+        <span class="kicker"><span class="dot"></span>04 · Modules (cont.)</span>
         <h2>Diet &amp; Groceries</h2>
         <div class="split" style="margin-top:12px; gap:24px; align-items:flex-start;">
           <div>
@@ -931,9 +702,6 @@
               <div class="feat">
                 <div class="feat-dot" style="background:var(--amber);"></div><span
                   style="font-size:.8em; color:var(--ink-dim);">Auto-links meals to grocery list</span>
-              </div>
-              <div style="margin-top:14px;">
-                <div class="ss-placeholder">[ Diet module screenshot ]</div>
               </div>
             </div>
           </div>
@@ -964,13 +732,32 @@
                 <div class="feat-dot" style="background:var(--ink-dim);"></div><span
                   style="font-size:.8em; color:var(--ink-dim);">Connects all three modules in one action</span>
               </div>
-              <div style="margin-top:14px;">
-                <div class="ss-placeholder">[ Groceries module screenshot ]</div>
-              </div>
             </div>
           </div>
         </div>
         <div class="tag">diet · groceries</div>
+      </section>
+
+      <!-- ============ 7. DASHBOARD ============ -->
+      <section data-background-class="bgrid">
+        <span class="kicker"><span class="dot"></span>05 · Dashboard</span>
+        <h2>Everything at a glance</h2>
+        <div style="margin-top:16px;">
+          <div class="ss-placeholder" style="min-height:460px;">
+            [ Add dashboard screenshot here ]
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 8. INSIGHTS ============ -->
+      <section data-background-class="bgrid">
+        <span class="kicker"><span class="dot"></span>06 · Insights</span>
+        <h2>Where the magic happens</h2>
+        <div style="margin-top:16px;">
+          <div class="ss-placeholder" style="min-height:460px;">
+            [ Add insights screenshot here ]
+          </div>
+        </div>
       </section>
 
       <!-- ============ 9. FUTURE SCOPE ============ -->
@@ -980,31 +767,19 @@
         <div class="grid2" style="gap:14px; margin-top:10px;">
           <div class="card" style="border-color:rgba(52,215,168,0.3);">
             <div style="font-size:1.3em; margin-bottom:10px;">🤖</div>
-            <div style="font-family:'Space Grotesk'; font-weight:700; color:var(--ink); margin-bottom:6px;">Local LLM
-              engine</div>
-            <div style="font-size:.8em; color:var(--ink-dim); line-height:1.65;">On-device model for deeper pattern
-              detection — fully private, nothing leaves your phone.</div>
+            <div style="font-family:'Space Grotesk'; font-weight:700; color:var(--ink);">Local LLM engine</div>
           </div>
           <div class="card" style="border-color:rgba(76,141,255,0.3);">
             <div style="font-size:1.3em; margin-bottom:10px;">🔔</div>
-            <div style="font-family:'Space Grotesk'; font-weight:700; color:var(--ink); margin-bottom:6px;">Smart
-              notifications</div>
-            <div style="font-size:.8em; color:var(--ink-dim); line-height:1.65;">Timely, personalized nudges — spend
-              alerts, meal reminders, and recovery tips exactly when you need them.</div>
+            <div style="font-family:'Space Grotesk'; font-weight:700; color:var(--ink);">Smart notifications</div>
           </div>
           <div class="card" style="border-color:rgba(255,180,84,0.3);">
             <div style="font-size:1.3em; margin-bottom:10px;">🔬</div>
-            <div style="font-family:'Space Grotesk'; font-weight:700; color:var(--ink); margin-bottom:6px;">Food scanner
-            </div>
-            <div style="font-size:.8em; color:var(--ink-dim); line-height:1.65;">Scan a meal → auto-log calories →
-              suggest it for your grocery list. Zero manual entry, full loop closed.</div>
+            <div style="font-family:'Space Grotesk'; font-weight:700; color:var(--ink);">Food scanner</div>
           </div>
           <div class="card" style="border-color:rgba(148,163,184,0.2);">
             <div style="font-size:1.3em; margin-bottom:10px;">🏆</div>
-            <div style="font-family:'Space Grotesk'; font-weight:700; color:var(--ink); margin-bottom:6px;">Daily
-              check-in &amp; points</div>
-            <div style="font-size:.8em; color:var(--ink-dim); line-height:1.65;">Gamified engagement — streaks and
-              points encourage daily planning across all three domains.</div>
+            <div style="font-family:'Space Grotesk'; font-weight:700; color:var(--ink);">Daily check-in &amp; points</div>
           </div>
         </div>
         <div class="tag">roadmap</div>
